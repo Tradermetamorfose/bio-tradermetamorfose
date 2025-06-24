@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trader Metamorfose</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #000; color: #fff; text-align: center; padding: 20px; }
+    img { max-width: 200px; margin-bottom: 20px; }
+    h1 { color: #00ff00; }
+    button, a.button { display: block; margin: 10px auto; padding: 10px 20px; background: #0f0; color: #000; border: none; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    iframe { width: 100%; max-width: 560px; height: 315px; border: none; margin: 20px auto; display: block; }
+  </style>
+</head>
+<body>
+  <img src="https://tradermetamorfose.github.io/bio-tradermetamorfose/logo.png" alt="Logo Trader Metamorfose" />
+  <h1>Desperte o Trader que há em você</h1>
+  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+
+  <a class="button" href="https://t.me/+0r1PR9E0kek0NjQx" target="_blank">🚀 Entrar no Canal VIP no Telegram</a>
+  <a class="button" href="https://www.youtube.com/@TraderMetamorfose" target="_blank">🎬 Ver Conteúdo no YouTube</a>
+  <a class="button" href="pagamento.html" target="_blank">💳 Participar da Mentoria</a>
+
+  <!-- Primeiro vídeo fixo (opcional) -->
+  <iframe src="https://www.youtube.com/embed/mZ-jWi8Q4dE" title="Primeiro vídeo"></iframe>
+
+  <!-- Segundo vídeo dinâmico (último do canal) -->
+  <iframe id="ultimoVideo" src="" allowfullscreen title="Último vídeo do canal"></iframe>
+
+  <script>
+    fetch("https://backend-youtube-zeta.vercel.app/api/ultimo-video")
+      .then(res => res.json())
+      .then(data => {
+        if (data.videoId) {
+          document.getElementById("ultimoVideo").src = "https://www.youtube.com/embed/" + data.videoId;
+        }
+      });
+  </script>
+</body>
+</html>

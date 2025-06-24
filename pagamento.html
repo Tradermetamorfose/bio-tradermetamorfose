@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento - Mentoria Trader Metamorfose</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    .logo {
+      width: 150px;
+      margin: 10px auto 30px;
+      display: block;
+    }
+    h1 {
+      color: #14ff5f;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 15px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      background: #14ff5f;
+      color: black;
+    }
+    .pix-container {
+      margin-top: 30px;
+    }
+    .pix-key {
+      background-color: #222;
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-family: monospace;
+    }
+    .telegram {
+      margin-top: 25px;
+      font-size: 1rem;
+    }
+    .telegram a {
+      color: #14ff5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .telegram a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
+  <h1>Formas de Pagamento</h1>
+  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
+
+  <a class="button" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+    💳 Pagar com Cartão de Crédito<br><small>(Parcelamento até 5X sem juros)</small>
+  </a>
+
+  <div class="pix-container">
+  <a class="button" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+    📲 Pagar via Pix (à vista)
+  </a>
+  <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
+    Após o pagamento, envie o comprovante no Telegram.
+  </p>
+  <div class="telegram">
+    👉 <a href="https://t.me/Trader_Metamorfose" target="_blank">CLIQUE AQUI</a>
+  </div>
+</div>
+
+  <footer>
+    © 2025 Trader Metamorfose. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function copiarPix() {
+      const chave = document.getElementById("pixKey").innerText;
+      navigator.clipboard.writeText(chave).then(() => {
+        alert("Chave Pix copiada com sucesso!");
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Mentoria</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo {
+      width: 100px;
+      margin: 20px auto;
+    }
+    .button {
+      display: block;
+      width: fit-content;
+      margin: 15px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: white;
+      background-color: #00b894;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .telegram {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .telegram img {
+      width: 32px;
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/raw/d5bd32d17f0dcccaaa146d5eeb2ee2718136f088/logo.png" alt="Logo">
+
+  <h1>Pagamento da Mentoria</h1>
+
+  <a class="button" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+    Pagar com Cartão (Parcelamento até 5X sem juros)
+  </a>
+
+  <p><strong>PIX:</strong> tradermetamorfose@gmail.com</p>
+  <button class="button" onclick="copyPix()">Copiar Chave PIX</button>
+  <p>Copie a chave, acesse seu banco de preferência e cole no campo do PIX.</p>
+
+  <div class="telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+    <a class="button" href="https://t.me/Trader_Metamorfose" target="_blank">
+      Me envie o comprovante de pagamento no Telegram (CLIQUE AQUI)
+    </a>
+  </div>
+
+  <script>
+    function copyPix() {
+      navigator.clipboard.writeText("tradermetamorfose@gmail.com").then(() => {
+        alert("Chave PIX copiada!");
+      });
+    }
+  </script>
+</body>
+</html>

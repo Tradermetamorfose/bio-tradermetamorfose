@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metamorfose</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canal Trader Metamorfose</h1>
+  <!-- Vídeo fixo -->
+  <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" allowfullscreen></iframe>
+  
+  <!-- Último vídeo do canal via API -->
+  <div id="ultimo-video"></div>
+
+  <script>
+    async function carregarUltimoVideo() {
+      const apiKey = "AIzaSyA8O0eLHVPHWJ-Kh3BjzDLtebG6yCOUfhQ";
+      const channelId = "UCxMmKmOua1yM46yZMoADFnQ";
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=1`;
+
+      try {
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
+        const videoId = dados.items[0].id.videoId;
+        const iframe = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>`;
+        document.getElementById("ultimo-video").innerHTML = iframe;
+      } catch (erro) {
+        console.error("Erro ao carregar o último vídeo:", erro);
+      }
+    }
+
+    carregarUltimoVideo();
+  </script>
+</body>
+</html>

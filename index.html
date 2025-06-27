@@ -1,125 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trader Metamorfose - Bio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trader Metamorfose - Bio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
-    .logo {
-      width: 150px;
-      margin: 30px auto 10px;
-    }
+      .logo {
+        width: 150px;
+        margin: 30px auto 10px;
+      }
 
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
 
-    p {
-      font-size: 1rem;
-      color: #bbb;
-    }
+      p {
+        font-size: 1rem;
+        color: #bbb;
+      }
 
-    .button-container {
-      margin-top: 30px;
-    }
+      .button-container {
+        margin-top: 30px;
+      }
 
-    .button {
-      display: block;
-      width: 80%;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 15px;
-      background: #14ff5f1c;
-      border: 1px solid #14ff5f;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
+      .button {
+        display: block;
+        width: 80%;
+        max-width: 400px;
+        margin: 15px auto;
+        padding: 15px;
+        background: #14ff5f1c;
+        border: 1px solid #14ff5f;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
 
-    .button:hover {
-      background: #14ff5f;
-      color: black;
-    }
+      .button:hover {
+        background: #14ff5f;
+        color: black;
+      }
 
-    .telegram-icon,
-    .youtube-icon {
-      vertical-align: middle;
-      height: 20px;
-      margin-right: 8px;
-    }
+      .telegram-icon,
+      .youtube-icon {
+        vertical-align: middle;
+        height: 20px;
+        margin-right: 8px;
+      }
 
-    /* Container dos vídeos com layout responsivo */
-    .video-carousel {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .video-carousel iframe {
-      width: 100%;
-      height: 215px;
-    }
-
-    /* Layout em colunas para telas maiores (PC) */
-    @media (min-width: 768px) {
-      .video-carousel {
-        flex-direction: row;
-        flex-wrap: wrap;
+      /* Ícones das redes sociais */
+      .social-icons {
+        margin-top: 20px;
+        display: flex;
         justify-content: center;
+        gap: 20px;
+      }
+
+      .social-icons img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #14ff5f;
+        transition: transform 0.3s ease;
+      }
+
+      .social-icons img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Container dos vídeos com layout responsivo */
+      .video-carousel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
       }
 
       .video-carousel iframe {
-        flex: 1 1 30%;
-        max-width: 32%;
-        height: 200px;
+        width: 100%;
+        height: 215px;
       }
-    }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
-  <h1>Desperte o Trader que há em você</h1>
-  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+      /* Layout em colunas para telas maiores (PC) */
+      @media (min-width: 768px) {
+        .video-carousel {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
 
-  <div class="button-container">
-    <a class="button" href="pagamento.html">💳 Participar da Mentoria</a>
-    <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
-      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon">
-      Ver Conteúdo no YouTube
-    </a>
-    <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
-      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" class="telegram-icon">
-      Entrar no Canal VIP no Telegram
-    </a>
-  </div>
+        .video-carousel iframe {
+          flex: 1 1 30%;
+          max-width: 32%;
+          height: 200px;
+        }
+      }
 
-  <div class="video-carousel">
-    <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" frameborder="0" allowfullscreen></iframe>
-  </div>
+      footer {
+        margin-top: 40px;
+        font-size: 0.8rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
+    <h1>Desperte o Trader que há em você</h1>
+    <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
-  <footer>
-    © 2025 Trader Metamorfose. Todos os direitos reservados.
-  </footer>
-</body>
+    <div class="button-container">
+      <a class="button" href="pagamento.html">💳 Participar da Mentoria</a>
+      <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
+        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon" />
+        Ver Conteúdo no YouTube
+      </a>
+      <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
+        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" class="telegram-icon" />
+        Entrar no Canal VIP no Telegram
+      </a>
+
+      <!-- Ícones Instagram e TikTok -->
+      <div class="social-icons">
+        <a href="https://www.instagram.com/trader.metamorfose" target="_blank">
+          <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@tradermetamorfose" target="_blank">
+          <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/TIKTOK.png?raw=true" alt="TikTok" />
+        </a>
+      </div>
+    </div>
+
+    <div class="video-carousel">
+      <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <footer>
+      © 2025 Trader Metamorfose. Todos os direitos reservados.
+    </footer>
+  </body>
 </html>

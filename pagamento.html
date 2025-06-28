@@ -1,169 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagamento - Mentoria Trader Metamorfose</title>
-
-  <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
-    .logo {
-      width: 150px;
-      margin: 10px auto 30px;
-      display: block;
-    }
-    h1 {
-      color: #14ff5f;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1rem;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-    .button {
-      display: block;
-      width: 80%;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 15px;
-      background: #14ff5f1c;
-      border: 1px solid #14ff5f;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-    .button:hover {
-      background: #14ff5f;
-      color: black;
-    }
-    .pix-container {
-      margin-top: 30px;
-    }
-    .pix-key {
-      display: none;
-    }
-    .telegram {
-      margin-top: 25px;
-      font-size: 1rem;
-    }
-    .telegram-link {
-      display: inline-block;
-      margin-top: 10px;
-      background: #14ff5f1c;
-      border: 1px solid #14ff5f;
-      border-radius: 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 20px;
-      transition: all 0.3s ease;
-    }
-    .telegram-link:hover {
-      background: #14ff5f;
-      color: black;
-    }
-    .telegram-link img {
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-    .video-container {
-      margin-top: 40px;
-    }
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border: 2px solid #14ff5f;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #14ff5f66;
-      transition: box-shadow 0.3s ease;
-      display: block;
-      margin: 0 auto;
-    }
-    iframe:hover {
-      box-shadow: 0 0 25px #14ff5faa;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
-  <h1>Formas de Pagamento</h1>
-  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
-
-  <a class="button" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
-    💳 Pagar com Cartão de Crédito<br>
-    <small>(Parcelamento até 5X sem juros)</small><br>
-    <span style="color: #14ff5f;">Válido até 30/06/2025</span>
-  </a>
-
-  <div class="pix-container">
-    <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
-
-    <div class="pix-key" id="pixKey">00020101021226750014BR.GOV.BCB.PIX0127tradermetamorfose@gmail.com0222Pagamento trader-metam52040000530398654071199.005802BR5924GIVANILDO SILVA DOS REIS6015SAO JOSE DOS CA62290525QRCCRJImTcDPt7PnxmrKhQLng630404D1</div>
-
-    <p style="font-size: 1.1rem; margin-top: 10px; color: #14ff5f;">
-      💰 Pix Valor R$ 1.199,00
-    </p>
-
-    <button class="button" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
-    <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
-      Após copiar, abra o app do seu banco e cole o código Pix no campo de pagamento.
-    </p>
-
-    <div class="telegram">
-      Me envie o comprovante de pagamento no Telegram<br>
-      <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
-        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
-        CLIQUE AQUI
-      </a>
-    </div>
-  </div>
-
-  <div class="video-container">
-    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
-      🎥 O que você vai aprender na Mentoria:
-    </h2>
-    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
-  </div>
-
-  <footer>
-    © 2025 Trader Metamorfose. Todos os direitos reservados.
-  </footer>
-
-  <script>
-    function copiarPix() {
-      const chave = document.getElementById("pixKey").innerText;
-      navigator.clipboard.writeText(chave).then(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Pix copiado!',
-          text: 'Pague em seu banco com o código colado.',
-          confirmButtonColor: '#14ff5f',
-          background: '#0f0f0f',
-          color: '#ffffff'
-        });
+<script>
+  function copiarPix() {
+    const chave = document.getElementById("pixKey").innerText;
+    navigator.clipboard.writeText(chave).then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Pix copiado!',
+        text: 'Pague em seu banco com o código colado.',
+        confirmButtonColor: '#14ff5f',
+        background: '#0f0f0f',
+        color: '#ffffff',
+        customClass: {
+          confirmButton: 'botao-ok-destaque'
+        }
       });
-    }
-  </script>
-</body>
-</html>
+    });
+  }
+</script>
+
+<style>
+  /* Estilo customizado para botão OK do SweetAlert */
+  .swal2-confirm.botao-ok-destaque {
+    font-size: 1.1rem !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    background-color: #14ff5f !important;
+    color: #000 !important;
+  }
+
+  .swal2-confirm.botao-ok-destaque:hover {
+    background-color: #0ae148 !important;
+    color: #000 !important;
+  }
+</style>

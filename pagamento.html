@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pagamento - Mentoria Trader Metamorfose</title>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
     body {
       margin: 0;
@@ -150,7 +154,14 @@
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
       navigator.clipboard.writeText(chave).then(() => {
-        alert("Pix copiado, pague em seu banco.");
+        Swal.fire({
+          icon: 'success',
+          title: 'Pix copiado!',
+          text: 'Pague em seu banco com o código colado.',
+          confirmButtonColor: '#14ff5f',
+          background: '#0f0f0f',
+          color: '#ffffff'
+        });
       });
     }
   </script>

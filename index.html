@@ -80,34 +80,6 @@
         transform: scale(1.1);
       }
 
-      /* Container dos vídeos com layout responsivo */
-      .video-carousel {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 30px;
-      }
-
-      .video-carousel iframe {
-        width: 100%;
-        height: 215px;
-      }
-
-      /* Layout em colunas para telas maiores (PC) */
-      @media (min-width: 768px) {
-        .video-carousel {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .video-carousel iframe {
-          flex: 1 1 30%;
-          max-width: 32%;
-          height: 200px;
-        }
-      }
-
       footer {
         margin-top: 40px;
         font-size: 0.8rem;
@@ -142,10 +114,17 @@
       </div>
     </div>
 
-    <div class="video-carousel">
-      <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" frameborder="0" allowfullscreen></iframe>
+    <!-- Vídeos centralizados estilo InfinitePay -->
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; padding: 0 20px;">
+      <div style="max-width: 800px; width: 100%; margin-bottom: 40px;">
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div style="max-width: 800px; width: 100%; margin-bottom: 40px;">
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div style="max-width: 800px; width: 100%; margin-bottom: 40px;">
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
     <footer>

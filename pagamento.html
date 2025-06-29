@@ -8,6 +8,9 @@
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
   <style>
     body {
       margin: 0;
@@ -120,22 +123,22 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
-  <h1>Formas de Pagamento</h1>
-  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
+  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo sr-fade" />
+  <h1 class="sr-fade">Formas de Pagamento</h1>
+  <p class="sr-fade">Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
   <!-- Contador regressivo -->
-  <div class="contador" id="contador">
+  <div class="contador sr-fade" id="contador">
     Oferta válida por tempo limitado...
   </div>
 
-  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+  <a class="button pulsando sr-up" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
     💳 Participar da Mentoria<br>
     <small>(Parcelamento até 5X sem juros)</small><br>
     <span style="color: #14ff5f;">Válido até 30/06/2025</span>
   </a>
 
-  <div class="pix-container">
+  <div class="pix-container sr-up">
     <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
 
     <div class="pix-key" id="pixKey">00020101021226750014BR.GOV.BCB.PIX0127tradermetamorfose@gmail.com0222Pagamento trader-metam52040000530398654071199.005802BR5924GIVANILDO SILVA DOS REIS6015SAO JOSE DOS CA62290525QRCCRJImTcDPt7PnxmrKhQLng630404D1</div>
@@ -144,12 +147,12 @@
       💰 Pix Valor R$ 1.199,00
     </p>
 
-    <button class="button" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
+    <button class="button sr-up" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
     <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
       Após copiar, abra o app do seu banco e cole o código Pix no campo de pagamento.
     </p>
 
-    <div class="telegram">
+    <div class="telegram sr-fade">
       Me envie o comprovante de pagamento no Telegram<br>
       <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
@@ -158,17 +161,38 @@
     </div>
   </div>
 
-  <div class="video-container">
+  <div class="video-container sr-up">
     <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
       🎥 O que você vai aprender na Mentoria:
     </h2>
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <footer>
+  <footer class="sr-fade">
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
+  <!-- ScrollReveal Ativação -->
+  <script>
+    ScrollReveal().reveal('.sr-fade', {
+      duration: 1000,
+      distance: '20px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      reset: false
+    });
+
+    ScrollReveal().reveal('.sr-up', {
+      duration: 1200,
+      distance: '40px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      interval: 100,
+      reset: false
+    });
+  </script>
+
+  <!-- Copiar Pix -->
   <script>
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
@@ -185,7 +209,6 @@
       });
     }
 
-    // Contador regressivo
     function atualizarContador() {
       const fim = new Date("2025-06-30T23:59:59").getTime();
       const agora = new Date().getTime();

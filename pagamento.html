@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pagamento - Mentoria Trader Metamorfose</title>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
     body {
       margin: 0;
@@ -13,129 +17,153 @@
       text-align: center;
       padding: 30px;
     }
-
     .logo {
       width: 150px;
       margin: 10px auto 30px;
       display: block;
     }
-
     h1 {
-      font-size: 1.6rem;
       color: #14ff5f;
+      font-size: 1.8rem;
       margin-bottom: 20px;
     }
-
     p {
       font-size: 1rem;
       color: #ccc;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-
-    .qr-code {
-      max-width: 300px;
-      width: 100%;
-      margin: 0 auto 20px;
-      border: 2px solid #14ff5f;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: white;
-    }
-
-    .copy-button {
-      display: inline-block;
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 15px;
       background: #14ff5f1c;
       border: 1px solid #14ff5f;
       border-radius: 10px;
       color: white;
-      padding: 10px 20px;
+      text-decoration: none;
       font-size: 1rem;
-      cursor: pointer;
       transition: all 0.3s ease;
-      margin-top: 10px;
     }
-
-    .copy-button:hover {
+    .button:hover {
       background: #14ff5f;
       color: black;
     }
-
-    .copiado {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #14ff5f;
+    .pulsando {
+      animation: brilho 2s infinite;
     }
-
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
+    .contador {
+      font-size: 1rem;
+      color: #14ff5f;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #14ff5f;
+    }
+    .pix-container {
+      margin-top: 30px;
+    }
+    .pix-key {
+      display: none;
+    }
+    .telegram {
+      margin-top: 25px;
+      font-size: 1rem;
+    }
+    .telegram-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+    .telegram-link:hover {
+      background: #14ff5f;
+      color: black;
+    }
+    .telegram-link img {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .video-container {
+      margin-top: 40px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: 2px solid #14ff5f;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #14ff5f66;
+      transition: box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    iframe:hover {
+      box-shadow: 0 0 25px #14ff5faa;
+    }
     footer {
       margin-top: 40px;
       font-size: 0.8rem;
       color: #555;
     }
-
-    /* Botão flutuante do Telegram */
-    .telegram-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: transparent;
-      border-radius: 50%;
-      padding: 0;
-      box-shadow: 0 0 15px #14ff5f88;
-      transition: transform 0.3s ease;
-      display: none;
-    }
-
-    .telegram-float.show {
-      display: block;
-    }
-
-    .telegram-float:hover {
-      transform: scale(1.1);
-    }
-
-    .telegram-float img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    /* Tooltip do Telegram */
-    #tooltip {
-      position: fixed;
-      bottom: 90px;
-      right: 30px;
-      background: #14ff5f;
-      color: #000;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      box-shadow: 0 0 10px #14ff5f88;
-      z-index: 1000;
-      display: none;
-    }
   </style>
 </head>
 <body>
-  <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/d5bd32d17f0dcccaaa146d5eeb2ee2718136f088/logo.png?raw=true" alt="Logo Trader Metamorfose" class="logo" />
+  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
+  <h1>Formas de Pagamento</h1>
+  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
-  <h1>Finalize seu pagamento com segurança</h1>
-  <p>Escaneie o QR Code abaixo ou copie a chave Pix para concluir sua inscrição na mentoria.</p>
-
-  <img class="qr-code" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/bb457ea35d8e079b439b25d8aaddcf3df156e50b/qr-code-pagamento-pix.jpg?raw=true" alt="QR Code Pagamento PIX" />
-
-  <div>
-    <button class="copy-button" onclick="copiarPix()">📋 Copiar Chave Pix</button>
-    <div class="copiado" id="mensagem-copiado" style="display:none;">✅ Chave Pix copiada com sucesso!</div>
+  <!-- Contador regressivo -->
+  <div class="contador" id="contador">
+    Oferta válida por tempo limitado...
   </div>
 
-  <!-- Tooltip e botão flutuante -->
-  <div id="tooltip">💬 Fale diretamente comigo no Telegram</div>
-  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
-    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/71f0c126f2c81a9f736afcea0e00cf34c2a069a7/ChatTelegram.png?raw=true" alt="Fale comigo no Telegram" />
+  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+    💳 Participar da Mentoria<br>
+    <small>(Parcelamento até 5X sem juros)</small><br>
+    <span style="color: #14ff5f;">Válido até 30/06/2025</span>
   </a>
+
+  <div class="pix-container">
+    <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
+
+    <div class="pix-key" id="pixKey">00020101021226750014BR.GOV.BCB.PIX0127tradermetamorfose@gmail.com0222Pagamento trader-metam52040000530398654071199.005802BR5924GIVANILDO SILVA DOS REIS6015SAO JOSE DOS CA62290525QRCCRJImTcDPt7PnxmrKhQLng630404D1</div>
+
+    <p style="font-size: 1.1rem; margin-top: 10px; color: #14ff5f;">
+      💰 Pix Valor R$ 1.199,00
+    </p>
+
+    <button class="button" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
+    <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
+      Após copiar, abra o app do seu banco e cole o código Pix no campo de pagamento.
+    </p>
+
+    <div class="telegram">
+      Me envie o comprovante de pagamento no Telegram<br>
+      <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
+        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
+        CLIQUE AQUI
+      </a>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
+      🎥 O que você vai aprender na Mentoria:
+    </h2>
+    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
+  </div>
 
   <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
@@ -143,26 +171,42 @@
 
   <script>
     function copiarPix() {
-      const chavePix = "tradermetamorfose@pix.com.br"; // Altere aqui se necessário
-      navigator.clipboard.writeText(chavePix).then(() => {
-        const msg = document.getElementById("mensagem-copiado");
-        msg.style.display = "block";
-        setTimeout(() => {
-          msg.style.display = "none";
-        }, 3000);
+      const chave = document.getElementById("pixKey").innerText;
+      navigator.clipboard.writeText(chave).then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Pix copiado!',
+          text: 'Pague em seu banco com o código colado.',
+          timer: 2000,
+          showConfirmButton: false,
+          background: '#0f0f0f',
+          color: '#ffffff'
+        });
       });
     }
 
-    // Script botão do Telegram com balão
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('telegramBtn').classList.add('show');
-        document.getElementById('tooltip').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('tooltip').style.display = 'none';
-        }, 5000);
-      }, 4000);
-    });
+    // Contador regressivo
+    function atualizarContador() {
+      const fim = new Date("2025-06-30T23:59:59").getTime();
+      const agora = new Date().getTime();
+      const distancia = fim - agora;
+
+      if (distancia <= 0) {
+        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
   </script>
 </body>
 </html>

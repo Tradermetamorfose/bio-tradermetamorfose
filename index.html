@@ -54,6 +54,19 @@
         color: black;
       }
 
+      .pulsando {
+        animation: brilho 2s infinite;
+      }
+
+      @keyframes brilho {
+        0%, 100% {
+          text-shadow: 0 0 5px #14ff5f;
+        }
+        50% {
+          text-shadow: 0 0 15px #14ff5f;
+        }
+      }
+
       .telegram-icon,
       .youtube-icon {
         vertical-align: middle;
@@ -121,7 +134,7 @@
     <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
     <div class="button-container">
-      <a class="button" href="pagamento.html">💳 Participar da Mentoria</a>
+      <a class="button pulsando" href="pagamento.html">💳 Participar da Mentoria</a>
       <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon" />
         Ver Conteúdo no YouTube

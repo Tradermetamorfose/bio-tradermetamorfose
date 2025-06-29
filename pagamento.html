@@ -57,6 +57,13 @@
       0%, 100% { text-shadow: 0 0 5px #14ff5f; }
       50% { text-shadow: 0 0 15px #14ff5f; }
     }
+    .contador {
+      font-size: 1rem;
+      color: #14ff5f;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #14ff5f;
+    }
     .pix-container {
       margin-top: 30px;
     }
@@ -117,6 +124,11 @@
   <h1>Formas de Pagamento</h1>
   <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
+  <!-- Contador regressivo -->
+  <div class="contador" id="contador">
+    Oferta válida por tempo limitado...
+  </div>
+
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
     💳 Participar da Mentoria<br>
     <small>(Parcelamento até 5X sem juros)</small><br>
@@ -172,6 +184,29 @@
         });
       });
     }
+
+    // Contador regressivo
+    function atualizarContador() {
+      const fim = new Date("2025-06-30T23:59:59").getTime();
+      const agora = new Date().getTime();
+      const distancia = fim - agora;
+
+      if (distancia <= 0) {
+        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
   </script>
 </body>
 </html>

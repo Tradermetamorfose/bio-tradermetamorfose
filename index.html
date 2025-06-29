@@ -131,28 +131,31 @@
       }
     }
   </style>
+
+  <!-- ScrollReveal CDN -->
+  <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
-  <h1>Desperte o Trader Profissional que há em você!</h1>
-  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+  <img class="logo sr-fade" src="logo.png" alt="Logo Trader Metamorfose" />
+  <h1 class="sr-fade">Desperte o Trader Profissional que há em você!</h1>
+  <p class="sr-fade">Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
-  <div class="button-container">
-    <div class="contador" id="contador">
+  <div class="button-container sr-up">
+    <div class="contador sr-fade" id="contador">
       Oferta válida por tempo limitado...
     </div>
 
-    <a class="button pulsando" href="pagamento.html">💳 Participar da Mentoria</a>
-    <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
+    <a class="button pulsando sr-up" href="pagamento.html">💳 Participar da Mentoria</a>
+    <a class="button sr-up" href="https://youtube.com/@tradermetamorfose" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon" />
       Ver Conteúdo no YouTube
     </a>
-    <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
+    <a class="button sr-up" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" class="telegram-icon" />
       Entrar no Canal VIP no Telegram
     </a>
 
-    <div class="social-icons">
+    <div class="social-icons sr-up">
       <a href="https://www.instagram.com/trader.metamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" />
       </a>
@@ -163,23 +166,43 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; padding: 0 20px;">
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" allowfullscreen></iframe>
     </div>
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" allowfullscreen></iframe>
     </div>
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" allowfullscreen></iframe>
     </div>
   </div>
 
-  <footer>
+  <footer class="sr-fade">
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
+  <!-- ScrollReveal Configuração -->
   <script>
-    // Contador regressivo até 30/06/2025 23:59:59
+    ScrollReveal().reveal('.sr-fade', {
+      duration: 1000,
+      distance: '20px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      reset: false
+    });
+
+    ScrollReveal().reveal('.sr-up', {
+      duration: 1200,
+      distance: '40px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      interval: 100,
+      reset: false
+    });
+  </script>
+
+  <!-- Contador Regressivo -->
+  <script>
     const countdown = () => {
       const fim = new Date("2025-06-30T23:59:59").getTime();
       const agora = new Date().getTime();

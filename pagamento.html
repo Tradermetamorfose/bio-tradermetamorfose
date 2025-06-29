@@ -118,7 +118,7 @@
       color: #555;
     }
 
-    /* Botão flutuante Telegram com imagem */
+    /* Botão flutuante com imagem e efeito neon suave */
     #botao-flutuante {
       display: none;
       position: fixed;
@@ -134,12 +134,12 @@
     #botao-flutuante img {
       width: 60px;
       height: 60px;
-      filter: drop-shadow(0 0 10px #14ff5f);
+      filter: drop-shadow(0 0 8px #14ff5f);
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.07); }
       100% { transform: scale(1); }
     }
 
@@ -208,10 +208,10 @@
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
-  <!-- Botão flutuante com balão -->
+  <!-- Botão flutuante com imagem nova -->
   <div id="balon" class="balon-msg">Fale comigo no Telegram!</div>
   <button id="botao-flutuante" onclick="window.open('https://t.me/Trader_Metamorfose', '_blank')">
-    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Botão Telegram" />
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f0b38a028ba5a872a1b2f9b3c470cbae20619674/ChatTelegram.png?raw=true" alt="Botão Telegram" />
   </button>
 
   <script>
@@ -252,11 +252,9 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Mostrar botão e balão após 4 segundos
     setTimeout(() => {
       document.getElementById("botao-flutuante").style.display = "block";
       document.getElementById("balon").style.display = "block";
-
       setTimeout(() => {
         document.getElementById("balon").style.display = "none";
       }, 5000);

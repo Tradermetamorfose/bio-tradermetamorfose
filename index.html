@@ -142,6 +142,11 @@
       padding: 0;
       box-shadow: 0 0 15px #14ff5f88;
       transition: transform 0.3s ease;
+      display: none;
+    }
+
+    .telegram-float.show {
+      display: block;
     }
 
     .telegram-float:hover {
@@ -153,6 +158,22 @@
       height: 60px;
       border-radius: 50%;
       display: block;
+    }
+
+    /* Tooltip temporário */
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
     }
   </style>
 
@@ -201,8 +222,9 @@
     </div>
   </div>
 
-  <!-- Botão flutuante do Telegram com imagem atualizada -->
-  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float">
+  <!-- Tooltip e botão flutuante -->
+  <div id="tooltip">💬 Fale diretamente comigo no Telegram</div>
+  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/71f0c126f2c81a9f736afcea0e00cf34c2a069a7/ChatTelegram.png?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
@@ -253,6 +275,19 @@
 
     setInterval(countdown, 1000);
     countdown();
+  </script>
+
+  <!-- Script botão e tooltip -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('telegramBtn').classList.add('show');
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 5000);
+      }, 4000);
+    });
   </script>
 </body>
 </html>

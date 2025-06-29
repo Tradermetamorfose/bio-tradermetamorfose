@@ -63,14 +63,6 @@
       50% { text-shadow: 0 0 15px #14ff5f; }
     }
 
-    .contador {
-      font-size: 1rem;
-      color: #14ff5f;
-      margin-bottom: 10px;
-      font-weight: bold;
-      text-shadow: 0 0 10px #14ff5f;
-    }
-
     .telegram-icon,
     .youtube-icon {
       vertical-align: middle;
@@ -133,26 +125,22 @@
   </style>
 </head>
 <body>
-  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
-  <h1>Desperte o Trader Profissional que há em você!</h1>
-  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+  <img class="logo sr-fade" src="logo.png" alt="Logo Trader Metamorfose" />
+  <h1 class="sr-fade">Desperte o Trader Profissional que há em você!</h1>
+  <p class="sr-fade">Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
   <div class="button-container">
-    <div class="contador" id="contador">
-      Oferta válida por tempo limitado...
-    </div>
-
-    <a class="button pulsando" href="pagamento.html">💳 Participar da Mentoria</a>
-    <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
+    <a class="button pulsando sr-up" href="pagamento.html">💳 Participar da Mentoria</a>
+    <a class="button sr-up" href="https://youtube.com/@tradermetamorfose" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon" />
       Ver Conteúdo no YouTube
     </a>
-    <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
+    <a class="button sr-up" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" class="telegram-icon" />
       Entrar no Canal VIP no Telegram
     </a>
 
-    <div class="social-icons">
+    <div class="social-icons sr-up">
       <a href="https://www.instagram.com/trader.metamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" />
       </a>
@@ -163,44 +151,40 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; padding: 0 20px;">
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" allowfullscreen></iframe>
     </div>
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" allowfullscreen></iframe>
     </div>
-    <div class="video-wrapper">
+    <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" allowfullscreen></iframe>
     </div>
   </div>
 
-  <footer>
+  <footer class="sr-fade">
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
+  <!-- ScrollReveal JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script>
-    // Contador regressivo até 30/06/2025 23:59:59
-    const countdown = () => {
-      const fim = new Date("2025-06-30T23:59:59").getTime();
-      const agora = new Date().getTime();
-      const distancia = fim - agora;
+    ScrollReveal().reveal('.sr-fade', {
+      duration: 1000,
+      distance: '20px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      reset: false
+    });
 
-      if (distancia <= 0) {
-        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
-        return;
-      }
-
-      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-      document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    };
-
-    setInterval(countdown, 1000);
-    countdown();
+    ScrollReveal().reveal('.sr-up', {
+      duration: 1200,
+      distance: '40px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      interval: 100,
+      reset: false
+    });
   </script>
 </body>
 </html>

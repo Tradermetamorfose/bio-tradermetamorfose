@@ -50,6 +50,13 @@
       background: #14ff5f;
       color: black;
     }
+    .pulsando {
+      animation: brilho 2s infinite;
+    }
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
     .pix-container {
       margin-top: 30px;
     }
@@ -110,8 +117,8 @@
   <h1>Formas de Pagamento</h1>
   <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
-  <a class="button" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
-    💳 Pagar com Cartão de Crédito<br>
+  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+    💳 Participar da Mentoria<br>
     <small>(Parcelamento até 5X sem juros)</small><br>
     <span style="color: #14ff5f;">Válido até 30/06/2025</span>
   </a>

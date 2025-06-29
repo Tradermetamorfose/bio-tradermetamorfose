@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pagamento - Mentoria Trader Metamorfose</title>
 
-  <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
@@ -17,26 +16,27 @@
       text-align: center;
       padding: 30px;
     }
+
     .logo {
       width: 150px;
       margin: 10px auto 30px;
       display: block;
     }
+
     h1 {
       color: #14ff5f;
       font-size: 1.8rem;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 1rem;
       color: #ccc;
       margin-bottom: 20px;
     }
+
     .button {
-      display: block;
-      width: 80%;
-      max-width: 400px;
-      margin: 15px auto;
+      display: inline-block;
       padding: 15px;
       background: #14ff5f1c;
       border: 1px solid #14ff5f;
@@ -45,18 +45,28 @@
       text-decoration: none;
       font-size: 1rem;
       transition: all 0.3s ease;
+      width: 60px;
+      height: 60px;
     }
+
     .button:hover {
       background: #14ff5f;
       color: black;
     }
+
+    .button img {
+      height: 30px;
+    }
+
     .pulsando {
       animation: brilho 2s infinite;
     }
+
     @keyframes brilho {
       0%, 100% { text-shadow: 0 0 5px #14ff5f; }
       50% { text-shadow: 0 0 15px #14ff5f; }
     }
+
     .contador {
       font-size: 1rem;
       color: #14ff5f;
@@ -64,16 +74,20 @@
       font-weight: bold;
       text-shadow: 0 0 10px #14ff5f;
     }
+
     .pix-container {
       margin-top: 30px;
     }
+
     .pix-key {
       display: none;
     }
+
     .telegram {
       margin-top: 25px;
       font-size: 1rem;
     }
+
     .telegram-link {
       display: inline-block;
       margin-top: 10px;
@@ -86,18 +100,22 @@
       padding: 10px 20px;
       transition: all 0.3s ease;
     }
+
     .telegram-link:hover {
       background: #14ff5f;
       color: black;
     }
+
     .telegram-link img {
       height: 20px;
       vertical-align: middle;
       margin-right: 5px;
     }
+
     .video-container {
       margin-top: 40px;
     }
+
     iframe {
       width: 100%;
       max-width: 560px;
@@ -109,16 +127,41 @@
       display: block;
       margin: 0 auto;
     }
+
     iframe:hover {
       box-shadow: 0 0 25px #14ff5faa;
     }
+
     footer {
       margin-top: 40px;
       font-size: 0.8rem;
       color: #555;
     }
 
-    /* Botão flutuante com imagem e efeito neon suave */
+    .botoes-pagamento {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+      margin-top: 25px;
+    }
+
+    .balon-msg {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      background-color: #14ff5f;
+      color: black;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 13px;
+      box-shadow: 0 0 10px #14ff5f;
+      z-index: 998;
+      display: none;
+      font-weight: bold;
+    }
+
     #botao-flutuante {
       display: none;
       position: fixed;
@@ -142,21 +185,6 @@
       50% { transform: scale(1.07); }
       100% { transform: scale(1); }
     }
-
-    .balon-msg {
-      position: fixed;
-      bottom: 90px;
-      right: 25px;
-      background-color: #14ff5f;
-      color: black;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 13px;
-      box-shadow: 0 0 10px #14ff5f;
-      z-index: 998;
-      display: none;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -168,11 +196,17 @@
     Oferta válida por tempo limitado...
   </div>
 
-  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
-    💳 Participar da Mentoria<br>
-    <small>(Parcelamento até 5X sem juros)</small><br>
-    <span style="color: #14ff5f;">Válido até 30/06/2025</span>
-  </a>
+  <div class="botoes-pagamento">
+    <!-- Botão InfinitePay -->
+    <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank" title="Pagamento com Cartão">
+      <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="Cartão" />
+    </a>
+
+    <!-- Botão Mercado Pago -->
+    <a class="button pulsando" href="https://www.mercadopago.com.br" target="_blank" title="Pagar com Mercado Pago">
+      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/57b426012024dbda5017ea6493ba97688c96eab0/LogoMercadoPago01.png?raw=true" alt="Mercado Pago" />
+    </a>
+  </div>
 
   <div class="pix-container">
     <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
@@ -189,7 +223,7 @@
     </p>
 
     <div class="telegram">
-      Me envie o comprovante de pagamento no Telegram<br>
+      Me envie o comprovante de pagamento no Telegram<br />
       <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
         CLIQUE AQUI
@@ -208,7 +242,6 @@
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
-  <!-- Botão flutuante com imagem nova -->
   <div id="balon" class="balon-msg">Fale comigo no Telegram!</div>
   <button id="botao-flutuante" onclick="window.open('https://t.me/Trader_Metamorfose', '_blank')">
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f0b38a028ba5a872a1b2f9b3c470cbae20619674/ChatTelegram.png?raw=true" alt="Botão Telegram" />

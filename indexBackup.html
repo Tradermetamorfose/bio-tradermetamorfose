@@ -131,17 +131,12 @@
       }
     }
 
-    /* Botão flutuante do Telegram */
+    /* Botão flutuante atualizado com delay e tooltip */
     .telegram-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      background: transparent;
-      border-radius: 50%;
-      padding: 0;
-      box-shadow: 0 0 15px #14ff5f88;
-      transition: transform 0.3s ease;
       display: none;
     }
 
@@ -149,18 +144,13 @@
       display: block;
     }
 
-    .telegram-float:hover {
-      transform: scale(1.1);
-    }
-
     .telegram-float img {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      display: block;
+      box-shadow: 0 0 10px #14ff5f;
     }
 
-    /* Tooltip temporário */
     #tooltip {
       position: fixed;
       bottom: 90px;
@@ -177,7 +167,6 @@
     }
   </style>
 
-  <!-- ScrollReveal CDN -->
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
@@ -190,14 +179,14 @@
       Oferta válida por tempo limitado...
     </div>
 
-    <a class="button pulsando sr-up" href="pagamento.html">💳 Participar da Mentoria</a>
+    <a class="button pulsando sr-up" href="pagamento.html">💳 Quero participar da Mentoria</a>
     <a class="button sr-up" href="https://youtube.com/@tradermetamorfose" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/fa62f9bd80be59a642b8f0b08bfd53fe96d9550a/Logo%20youtube.jpg?raw=true" alt="YouTube" class="youtube-icon" />
       Ver Conteúdo no YouTube
     </a>
     <a class="button sr-up" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
       <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" class="telegram-icon" />
-      Entrar no Canal VIP no Telegram
+      Entre para o canal Traders com propósitos
     </a>
 
     <div class="social-icons sr-up">
@@ -222,17 +211,16 @@
     </div>
   </div>
 
-  <!-- Tooltip e botão flutuante -->
-  <div id="tooltip">💬 Fale diretamente comigo no Telegram</div>
+  <!-- Tooltip + botão flutuante -->
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
   <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
-    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/71f0c126f2c81a9f736afcea0e00cf34c2a069a7/ChatTelegram.png?raw=true" alt="Fale comigo no Telegram" />
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
   </a>
 
   <footer class="sr-fade">
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
-  <!-- ScrollReveal Configuração -->
   <script>
     ScrollReveal().reveal('.sr-fade', {
       duration: 1000,
@@ -252,7 +240,6 @@
     });
   </script>
 
-  <!-- Contador Regressivo -->
   <script>
     const countdown = () => {
       const fim = new Date("2025-06-30T23:59:59").getTime();
@@ -270,14 +257,14 @@
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
       document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        `⏳ Valor promocional termina em: ${horas}:${minutos}:${segundos}`;
     };
 
     setInterval(countdown, 1000);
     countdown();
   </script>
 
-  <!-- Script botão e tooltip -->
+  <!-- Script do botão e tooltip -->
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {

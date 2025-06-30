@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar para o Canal - Trader Metamorfose</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #14ff5f;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #14ff5f55;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #14ff5f;
+      border-radius: 8px;
+      background-color: #111;
+      color: white;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #14ff5f;
+      border: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #12e653;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seja bem-vindo(a)!</h1>
+  <p>Preencha os dados abaixo para entrar no canal <strong>Traders com Propósitos</strong></p>
+
+  <form id="leadForm">
+    <input type="text" name="nome" placeholder="Seu nome completo" required />
+    <input type="email" name="email" placeholder="Seu e-mail" required />
+    <input type="tel" name="telefone" placeholder="Seu WhatsApp (com DDD)" required />
+    <button type="submit">Entrar para o Canal</button>
+  </form>
+
+  <div class="footer">
+    © 2025 Trader Metamorfose. Todos os direitos reservados.
+  </div>
+
+  <script>
+    const scriptURL = 'COLE_AQUI_O_SEU_LINK_DO_SCRIPT_WEB_APP';
+    const form = document.getElementById('leadForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(response => {
+          window.location.href = 'https://t.me/+7rIK0qx38CBmMDMx';
+        })
+        .catch(error => alert('Erro no envio. Tente novamente.'));
+    });
+  </script>
+</body>
+</html>

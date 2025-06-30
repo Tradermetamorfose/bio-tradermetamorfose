@@ -135,43 +135,39 @@
       color: #555;
     }
 
-    .balon-msg {
-      position: fixed;
-      bottom: 90px;
-      right: 25px;
-      background-color: #14ff5f;
-      color: black;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 13px;
-      box-shadow: 0 0 10px #14ff5f;
-      z-index: 998;
-      display: none;
-      font-weight: bold;
-    }
-
-    #botao-flutuante {
-      display: none;
+    /* Novo botão flutuante Telegram com tooltip */
+    .telegram-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      animation: pulse 2s infinite;
+      display: none;
     }
 
-    #botao-flutuante img {
+    .telegram-float.show {
+      display: block;
+    }
+
+    .telegram-float img {
       width: 60px;
       height: 60px;
-      filter: drop-shadow(0 0 8px #14ff5f);
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.07); }
-      100% { transform: scale(1); }
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
     }
   </style>
 </head>
@@ -184,7 +180,6 @@
     Oferta válida por tempo limitado...
   </div>
 
-  <!-- Botão único restaurado -->
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
     💳 Participar da Mentoria<br>
     <small>(Parcelamento até 5X sem juros)</small><br>
@@ -221,15 +216,15 @@
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
+  <!-- Tooltip + botão flutuante Telegram -->
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
+  </a>
+
   <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
-
-  <!-- Botão flutuante com balão -->
-  <div id="balon" class="balon-msg">Fale comigo no Telegram!</div>
-  <button id="botao-flutuante" onclick="window.open('https://t.me/Trader_Metamorfose', '_blank')">
-    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f0b38a028ba5a872a1b2f9b3c470cbae20619674/ChatTelegram.png?raw=true" alt="Botão Telegram" />
-  </button>
 
   <script>
     function copiarPix() {
@@ -263,19 +258,22 @@
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
       document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        `⏳ Valor promocional termina em: ${horas}:${minutos}:${segundos}`;
     }
 
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    setTimeout(() => {
-      document.getElementById("botao-flutuante").style.display = "block";
-      document.getElementById("balon").style.display = "block";
+    // Script tooltip e botão Telegram com delay
+    window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById("balon").style.display = "none";
-      }, 5000);
-    }, 4000);
+        document.getElementById('telegramBtn').classList.add('show');
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 5000);
+      }, 4000);
+    });
   </script>
 </body>
 </html>

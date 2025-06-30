@@ -135,7 +135,6 @@
       color: #555;
     }
 
-    /* Novo botão flutuante Telegram com tooltip */
     .telegram-float {
       position: fixed;
       bottom: 20px;
@@ -180,10 +179,20 @@
     Oferta válida por tempo limitado...
   </div>
 
+  <!-- Texto acima dos botões -->
+  <p style="margin-top: 25px; font-size: 1.1rem; color: #14ff5f;">
+    💳 Participar da Mentoria (Parcelamento até 5X sem juros)
+  </p>
+
+  <!-- Botões de pagamento -->
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
-    💳 Participar da Mentoria<br>
-    <small>(Parcelamento até 5X sem juros)</small><br>
+    💳 Pagar com Cartão Crédito<br>
     <span style="color: #14ff5f;">Válido até 30/06/2025</span>
+  </a>
+
+  <a class="button pulsando" href="https://mpago.li/1y9Pe6d" target="_blank">
+    💳 Pagar com Mercado Pago<br>
+    <small>(Clique e pague com segurança pelo Mercado Pago)</small>
   </a>
 
   <div class="pix-container">
@@ -252,7 +261,6 @@
         return;
       }
 
-      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
@@ -264,7 +272,6 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Script tooltip e botão Telegram com delay
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');

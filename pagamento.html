@@ -179,18 +179,16 @@
     Oferta válida por tempo limitado...
   </div>
 
-  <!-- Texto acima dos botões -->
-  <p style="margin-top: 25px; font-size: 1.1rem; color: #14ff5f;">
+  <p id="textoParcelamento" style="margin-top: 25px; font-size: 1.1rem; color: #14ff5f;">
     💳 Participar da Mentoria (Parcelamento até 5X sem juros)
   </p>
 
-  <!-- Botões de pagamento -->
-  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+  <a class="button pulsando" id="botaoCartao" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
     💳 Pagar com Cartão Crédito<br>
     <span style="color: #14ff5f;">Válido até 30/06/2025</span>
   </a>
 
-  <a class="button pulsando" href="https://mpago.li/1y9Pe6d" target="_blank">
+  <a class="button pulsando" id="botaoMercadoPago" href="https://mpago.li/1y9Pe6d" target="_blank">
     💳 Pagar com Mercado Pago<br>
     <small>(Clique e pague com Mercado Pago)</small>
   </a>
@@ -225,7 +223,6 @@
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <!-- Tooltip + botão flutuante Telegram -->
   <div id="tooltip">💬 Fale comigo no Telegram</div>
   <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
@@ -256,8 +253,28 @@
       const agora = new Date().getTime();
       const distancia = fim - agora;
 
+      const contador = document.getElementById("contador");
+      const botaoCartao = document.getElementById("botaoCartao");
+      const botaoMP = document.getElementById("botaoMercadoPago");
+      const textoParcelamento = document.getElementById("textoParcelamento");
+
       if (distancia <= 0) {
-        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        if (contador) contador.remove();
+        if (botaoMP) botaoMP.remove();
+        if (botaoCartao) {
+          botaoCartao.href = "https://loja.infinitepay.io/trader-metamorfose/pji9773-mentoria-trader-metamorfose";
+        }
+        if (textoParcelamento) textoParcelamento.remove();
+
+        Swal.fire({
+          icon: 'info',
+          title: 'Oferta encerrada!',
+          text: 'Você será redirecionado para a nova página de pagamento.',
+          background: '#0f0f0f',
+          color: '#ffffff',
+          confirmButtonColor: '#14ff5f'
+        });
+
         return;
       }
 
@@ -265,8 +282,7 @@
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-      document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${horas}:${minutos}:${segundos}`;
+      contador.innerHTML = `⏳ Valor promocional termina em: ${horas}:${minutos}:${segundos}`;
     }
 
     setInterval(atualizarContador, 1000);

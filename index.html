@@ -157,6 +157,28 @@
       z-index: 1000;
       display: none;
     }
+
+    .mensagem-mentoria {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #14ff5f;
+      color: black;
+      padding: 15px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #14ff5f88;
+      opacity: 0;
+      z-index: 1000;
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .mensagem-mentoria.show {
+      top: 50%;
+      opacity: 1;
+    }
   </style>
 
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -214,6 +236,9 @@
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
   </a>
 
+  <!-- Mensagem animada da mentoria -->
+  <div id="avisoMentoria" class="mensagem-mentoria">💥 Valor da mentoria reduzido por tempo limitado! Confira!</div>
+
   <footer class="sr-fade">
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
@@ -267,6 +292,17 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
+
+      // Animação da mensagem da mentoria
+      setTimeout(() => {
+        const aviso = document.getElementById('avisoMentoria');
+        aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';
+        aviso.classList.add('show');
+
+        setTimeout(() => {
+          aviso.classList.remove('show');
+        }, 1500);
+      }, 1500);
     });
   </script>
 </body>

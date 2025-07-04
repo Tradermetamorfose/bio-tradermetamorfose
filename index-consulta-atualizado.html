@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trader Metamorfose - Bio</title>
+  <style>
+    /* Estilos completos mantidos como no original */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 150px;
+      margin: 30px auto 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #00FF00;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #bbb;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 15px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #14ff5f;
+      color: black;
+    }
+
+    .pulsando {
+      animation: brilho 2s infinite;
+    }
+
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
+
+    .contador {
+      font-size: 1rem;
+      color: #14ff5f;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #14ff5f;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #14ff5f;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .video-wrapper {
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #14ff5f;
+      box-shadow: 0 0 15px #14ff5f66;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .video-wrapper:hover {
+      box-shadow: 0 0 25px #14ff5faa;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
+  <h1>Desperte o Trader Profissional que há em você!</h1>
+  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+
+  <div class="button-container">
+    <div class="contador" id="contador">
+      Oferta válida por tempo limitado...
+    </div>
+
+    <a class="button pulsando" href="pagamento.html">💳 Quero participar da Mentoria</a>
+
+    <!-- NOVO BOTÃO ADICIONADO -->
+    <a class="button" href="consulta.html" target="_blank">
+      🧠 Quero uma Consulta Profissional
+    </a>
+
+    <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">📺 Ver Conteúdo no YouTube</a>
+    <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">📲 Entre para o canal Traders com propósitos</a>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/trader.metamorfose" target="_blank"><img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" /></a>
+      <a href="https://www.tiktok.com/@tradermetamorfose" target="_blank"><img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/TIKTOK.png?raw=true" alt="TikTok" /></a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Trader Metamorfose. Todos os direitos reservados.
+  </footer>
+</body>
+</html>

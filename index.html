@@ -145,26 +145,17 @@
 
     #tooltip {
       position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-      border: 1px solid #14ff5f;
-      color: #14ff5f;
-      padding: 10px 20px;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
       font-size: 0.9rem;
       font-weight: bold;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #14ff5f55;
-      opacity: 0;
+      box-shadow: 0 0 10px #14ff5f88;
       z-index: 1000;
-      transition: all 0.6s ease;
-      pointer-events: none;
-      text-shadow: 0 0 8px #14ff5f55;
-    }
-
-    #tooltip.show {
-      top: 45%;
-      opacity: 1;
+      display: none;
     }
 
     .mensagem-mentoria {
@@ -295,21 +286,15 @@
     countdown();
 
     window.addEventListener('load', () => {
-      // Botão flutuante do Telegram
       setTimeout(() => {
-        const telegramBtn = document.getElementById('telegramBtn');
-        const tooltip = document.getElementById('tooltip');
-
-        telegramBtn.classList.add('show');
-        tooltip.style.top = telegramBtn.getBoundingClientRect().top + window.scrollY + 'px';
-        tooltip.classList.add('show');
-
+        document.getElementById('telegramBtn').classList.add('show');
+        document.getElementById('tooltip').style.display = 'block';
         setTimeout(() => {
-          tooltip.classList.remove('show');
+          document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
 
-      // Animação da mentoria
+      // Animação da mensagem de mentoria
       setTimeout(() => {
         const aviso = document.getElementById('avisoMentoria');
         aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';

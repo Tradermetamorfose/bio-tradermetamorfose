@@ -65,6 +65,15 @@
       color: black;
     }
 
+    .pulsando {
+      animation: brilho 2s infinite;
+    }
+
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
+
     .telegram-float {
       position: fixed;
       bottom: 20px;
@@ -102,7 +111,7 @@
     <li>✔ Estratégias práticas para retomada da consistência</li>
   </ul>
 
-  <a class="button" href="https://loja.infinitepay.io/trader-metamorfose/vjs6771-consulta-profissional" target="_blank">Agendar Minha Consulta</a>
+  <a class="button pulsando" href="https://loja.infinitepay.io/trader-metamorfose/vjs6771-consulta-profissional" target="_blank">Agendar Minha Consulta</a>
 
   <div class="telegram-float">
     <a href="https://t.me/Trader_Metamorfose" target="_blank">

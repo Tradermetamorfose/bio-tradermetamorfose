@@ -6,6 +6,7 @@
   <title>Pagamento - Mentoria Trader Metamorfose</title>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
 
   <style>
     body {
@@ -179,7 +180,7 @@
     Oferta válida por tempo limitado...
   </div>
 
-  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
+  <a class="button pulsando sr" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
     💳 Em até 10x 139,90 sem juros<br>
     <span style="color: #14ff5f;">Válido até 10/07/2025</span>
   </a>
@@ -196,21 +197,21 @@
       Só R$ 1.259,00 à vista!
     </p>
 
-    <button class="button" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
+    <button class="button sr" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
     <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
       Após copiar, abra o app do seu banco e cole o código Pix no campo de pagamento.
     </p>
 
-    <div class="telegram">
+    <div class="telegram sr">
       Me envie o comprovante de pagamento no Telegram<br />
-      <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
+      <a class="telegram-link sr" href="https://t.me/Trader_Metamorfose" target="_blank">
         <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
         CLIQUE AQUI
       </a>
     </div>
   </div>
 
-  <div class="video-container">
+  <div class="video-container sr">
     <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
       🎥 O que você vai aprender na Mentoria:
     </h2>
@@ -272,6 +273,16 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
+
+      // ScrollReveal ativado com reset: true
+      ScrollReveal().reveal('.sr', {
+        duration: 1000,
+        distance: '40px',
+        origin: 'bottom',
+        easing: 'ease-in-out',
+        reset: true,
+        interval: 100
+      });
     });
   </script>
 </body>

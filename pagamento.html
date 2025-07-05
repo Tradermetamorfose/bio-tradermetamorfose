@@ -141,11 +141,6 @@
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      display: none;
-    }
-
-    .telegram-float.show {
-      display: block;
     }
 
     .telegram-float img {
@@ -266,15 +261,13 @@
     atualizarContador();
 
     window.addEventListener('load', () => {
+      // Exibir tooltip
+      document.getElementById('tooltip').style.display = 'block';
       setTimeout(() => {
-        document.getElementById('telegramBtn').classList.add('show');
-        document.getElementById('tooltip').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('tooltip').style.display = 'none';
-        }, 5000);
-      }, 4000);
+        document.getElementById('tooltip').style.display = 'none';
+      }, 5000);
 
-      // ScrollReveal ativado com reset: true
+      // ScrollReveal com reset true
       ScrollReveal().reveal('.sr', {
         duration: 1000,
         distance: '40px',

@@ -173,21 +173,21 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo sr" />
-  <h1 class="sr">Formas de Pagamento</h1>
-  <p class="sr">Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
+  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
+  <h1>Formas de Pagamento</h1>
+  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
-  <div class="contador sr" id="contador">
+  <div class="contador" id="contador">
     Oferta válida por tempo limitado...
   </div>
 
-  <a class="button pulsando sr" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
+  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri01-7xUbUL5Tt-1199,00" target="_blank">
     💳 Participar da Mentoria<br>
     <small>(Parcelamento até 5X sem juros)</small><br>
     <span style="color: #14ff5f;">Válido até 30/06/2025</span>
   </a>
 
-  <div class="pix-container sr">
+  <div class="pix-container">
     <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
 
     <div class="pix-key" id="pixKey">00020101021226750014BR.GOV.BCB.PIX0127tradermetamorfose@gmail.com0222Pagamento trader-metam52040000530398654071199.005802BR5924GIVANILDO SILVA DOS REIS6015SAO JOSE DOS CA62290525QRCCRJImTcDPt7PnxmrKhQLng630404D1</div>
@@ -264,7 +264,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Tooltip e botão flutuante com delay
+    // Tooltip + ScrollReveal
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');
@@ -274,7 +274,6 @@
         }, 5000);
       }, 4000);
 
-      // ScrollReveal config
       ScrollReveal().reveal('.sr', {
         distance: '40px',
         origin: 'bottom',

@@ -141,7 +141,6 @@
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      display: block;
     }
 
     .telegram-float img {
@@ -214,11 +213,12 @@
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <!-- BOTÃO FLUTUANTE TELEGRAM -->
+  <!-- Botão flutuante do Telegram -->
   <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float">
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
+  <!-- Tooltip do Telegram -->
   <div id="tooltip">💬 Fale comigo no Telegram</div>
 
   <footer>
@@ -270,7 +270,7 @@
         document.getElementById('tooltip').style.display = 'none';
       }, 5000);
 
-      // ScrollReveal com reset true
+      // ScrollReveal com reset
       ScrollReveal().reveal('.sr', {
         duration: 1000,
         distance: '40px',

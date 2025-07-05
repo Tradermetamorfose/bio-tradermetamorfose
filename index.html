@@ -30,6 +30,10 @@
       color: #bbb;
     }
 
+    .button-container {
+      margin-top: 30px;
+    }
+
     .button {
       display: block;
       width: 80%;
@@ -59,13 +63,12 @@
       50% { text-shadow: 0 0 15px #14ff5f; }
     }
 
-    .icon-img {
-      vertical-align: middle;
-      width: 25px;
-      height: 25px;
-      margin-right: 8px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #14ff5f;
+    .contador {
+      font-size: 1rem;
+      color: #14ff5f;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #14ff5f;
     }
 
     .social-icons {
@@ -109,16 +112,25 @@
       display: block;
     }
 
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
     @media (max-width: 768px) {
       iframe {
         height: 250px;
       }
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #555;
+    .icon-img {
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      margin-right: 8px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
     }
 
     .telegram-float {
@@ -135,44 +147,47 @@
       box-shadow: 0 0 10px #14ff5f;
     }
 
-    .telegram-msg {
+    #tooltip {
       position: fixed;
       bottom: 90px;
-      right: 20px;
-      background: #00ff88;
-      color: black;
-      padding: 10px 15px;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #00ff88;
-      font-size: 0.9rem;
-      animation: fadeOut 6s ease-in-out forwards;
-      z-index: 999;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; display: none; }
-    }
-
-    .promo-msg {
+      right: 30px;
       background: #14ff5f;
-      color: black;
-      padding: 10px 20px;
+      color: #000;
+      padding: 10px 15px;
       border-radius: 10px;
-      box-shadow: 0 0 15px #14ff5f;
-      display: inline-block;
-      margin-top: 20px;
-      animation: fadeInOut 8s ease-in-out;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: scale(0.8); }
-      10% { opacity: 1; transform: scale(1); }
-      90% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+    .mensagem-mentoria {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      border: 1px solid #14ff5f;
+      color: #14ff5f;
+      padding: 15px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #14ff5f55;
+      opacity: 0;
+      z-index: 1000;
+      transition: all 0.6s ease;
+      pointer-events: none;
+      text-shadow: 0 0 8px #14ff5f55;
+    }
+
+    .mensagem-mentoria.show {
+      top: 50%;
+      opacity: 1;
     }
   </style>
+
+  <!-- ScrollReveal CDN -->
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
@@ -180,11 +195,8 @@
   <h1>Desperte o Trader Profissional que há em você!</h1>
   <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
-  <!-- Promo Message -->
-  <div class="promo-msg">🔥 Valor reduzido por tempo limitado!</div>
-
   <a class="button pulsando" href="pagamento.html">
-    <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f4e4ba437fe051a41cda8839e1d74444ffcfdef4/LogoRedondo.png?raw=true" alt="Logo Trader Metamorfose Redondo" />
+    <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f4e4ba437fe051a41cda8839e1d74444ffcfdef4/LogoRedondo.png?raw=true" alt="Logo Trader Metamorfose" />
     Quero participar da Mentoria
   </a>
 
@@ -230,14 +242,17 @@
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
-  <!-- Mensagem do botão flutuante -->
-  <div class="telegram-msg">💬 Fale comigo no Telegram</div>
+  <!-- Tooltip do Telegram -->
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+
+  <!-- Mensagem central da mentoria -->
+  <div id="avisoMentoria" class="mensagem-mentoria">💥 Valor da mentoria reduzido por tempo limitado! Aproveite agora!</div>
 
   <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
-  <!-- ScrollReveal -->
+  <!-- Scripts -->
   <script>
     ScrollReveal().reveal('.sr-up', {
       duration: 1200,
@@ -246,6 +261,24 @@
       easing: 'ease-in-out',
       interval: 100,
       reset: true
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 6000);
+      }, 5000);
+
+      setTimeout(() => {
+        const aviso = document.getElementById('avisoMentoria');
+        aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';
+        aviso.classList.add('show');
+        setTimeout(() => {
+          aviso.classList.remove('show');
+        }, 2500);
+      }, 1500);
     });
   </script>
 </body>

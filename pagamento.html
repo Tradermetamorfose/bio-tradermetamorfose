@@ -135,7 +135,6 @@
       color: #555;
     }
 
-    /* Novo botão flutuante Telegram com tooltip */
     .telegram-float {
       position: fixed;
       bottom: 20px;
@@ -168,6 +167,13 @@
       box-shadow: 0 0 10px #14ff5f88;
       z-index: 1000;
       display: none;
+    }
+
+    /* Estilo personalizado do SweetAlert com borda neon */
+    .swal2-popup.custom-swal {
+      border: 2px solid #14ff5f;
+      box-shadow: 0 0 25px #14ff5faa, 0 0 40px #14ff5f88;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -216,7 +222,6 @@
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <!-- Tooltip + botão flutuante Telegram -->
   <div id="tooltip">💬 Fale comigo no Telegram</div>
   <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
@@ -237,7 +242,10 @@
           timer: 2000,
           showConfirmButton: false,
           background: '#0f0f0f',
-          color: '#ffffff'
+          color: '#ffffff',
+          customClass: {
+            popup: 'custom-swal'
+          }
         });
       });
     }
@@ -264,7 +272,6 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Script tooltip e botão Telegram com delay
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');

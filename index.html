@@ -132,6 +132,20 @@
       border-radius: 50%;
       box-shadow: 0 0 10px #14ff5f;
     }
+
+    .telegram-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .telegram-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
+    }
   </style>
 
   <!-- ScrollReveal CDN -->
@@ -184,6 +198,11 @@
     </div>
   </div>
 
+  <!-- Botão flutuante do Telegram -->
+  <a href="https://t.me/Trader_Metamorfose" class="telegram-float" target="_blank">
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
+  </a>
+
   <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
@@ -196,7 +215,7 @@
       origin: 'bottom',
       easing: 'ease-in-out',
       interval: 100,
-      reset: false
+      reset: true
     });
   </script>
 </body>

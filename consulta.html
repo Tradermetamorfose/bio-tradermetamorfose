@@ -88,6 +88,21 @@
       box-shadow: 0 0 10px #14ff5f;
     }
 
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
+    }
+
     .verse {
       font-style: italic;
       color: #aaa;
@@ -119,7 +134,20 @@
     </a>
   </div>
 
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+
   <p class="verse">"Mas os que esperam no Senhor renovam as suas forças. Voam alto como águias; correm e não ficam exaustos, andam e não se cansam." <br>– Isaías 40:31 (NVI)</p>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 6000);
+      }, 5000);
+    });
+  </script>
 
 </body>
 </html>

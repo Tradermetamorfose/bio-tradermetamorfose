@@ -6,7 +6,6 @@
   <title>Pagamento - Mentoria Trader Metamorfose</title>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
 
   <style>
     body {
@@ -136,7 +135,7 @@
       color: #555;
     }
 
-    /* Botão flutuante Telegram */
+    /* Novo botão flutuante Telegram com tooltip */
     .telegram-float {
       position: fixed;
       bottom: 20px;
@@ -210,7 +209,7 @@
     </div>
   </div>
 
-  <div class="video-container sr">
+  <div class="video-container">
     <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
       🎥 O que você vai aprender na Mentoria:
     </h2>
@@ -223,7 +222,7 @@
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
-  <footer class="sr">
+  <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
@@ -253,6 +252,7 @@
         return;
       }
 
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
@@ -264,7 +264,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Tooltip + ScrollReveal
+    // Script tooltip e botão Telegram com delay
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');
@@ -273,15 +273,6 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
-
-      ScrollReveal().reveal('.sr', {
-        distance: '40px',
-        origin: 'bottom',
-        duration: 800,
-        easing: 'ease-in-out',
-        interval: 200,
-        reset: false
-      });
     });
   </script>
 </body>

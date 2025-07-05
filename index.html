@@ -146,6 +146,45 @@
       border-radius: 50%;
       box-shadow: 0 0 10px #14ff5f;
     }
+
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
+    }
+
+    .mensagem-mentoria {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      border: 1px solid #14ff5f;
+      color: #14ff5f;
+      padding: 15px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #14ff5f55;
+      opacity: 0;
+      z-index: 1000;
+      transition: all 0.6s ease;
+      pointer-events: none;
+      text-shadow: 0 0 8px #14ff5f55;
+    }
+
+    .mensagem-mentoria.show {
+      top: 50%;
+      opacity: 1;
+    }
   </style>
 
   <!-- ScrollReveal CDN -->
@@ -203,12 +242,19 @@
     <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
+  <!-- Tooltip do Telegram -->
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+
+  <!-- Mensagem central da mentoria -->
+  <div id="avisoMentoria" class="mensagem-mentoria">💥 Valor da mentoria reduzido por tempo limitado! Aproveite agora!</div>
+
   <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
-  <!-- Animação dos vídeos -->
+  <!-- Scripts -->
   <script>
+    // Efeito scroll dos vídeos
     ScrollReveal().reveal('.sr-up', {
       duration: 1200,
       distance: '40px',
@@ -216,6 +262,26 @@
       easing: 'ease-in-out',
       interval: 100,
       reset: true
+    });
+
+    // Tooltip e aviso de mentoria
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 6000);
+      }, 5000);
+
+      // Aviso central animado
+      setTimeout(() => {
+        const aviso = document.getElementById('avisoMentoria');
+        aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';
+        aviso.classList.add('show');
+        setTimeout(() => {
+          aviso.classList.remove('show');
+        }, 2500);
+      }, 1500);
     });
   </script>
 </body>

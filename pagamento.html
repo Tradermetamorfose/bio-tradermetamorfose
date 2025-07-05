@@ -168,6 +168,13 @@
       z-index: 1000;
       display: none;
     }
+
+    /* Estilo neon para SweetAlert */
+    .swal2-neon {
+      border: 2px solid #14ff5f;
+      box-shadow: 0 0 15px #14ff5f, 0 0 30px #14ff5f88, 0 0 45px #14ff5f55;
+      border-radius: 15px;
+    }
   </style>
 </head>
 <body>
@@ -234,10 +241,13 @@
           icon: 'success',
           title: 'Pix copiado!',
           text: 'Pague em seu banco com o código colado.',
-          timer: 2000,
+          timer: 3000,
           showConfirmButton: false,
           background: '#0f0f0f',
-          color: '#ffffff'
+          color: '#ffffff',
+          customClass: {
+            popup: 'swal2-neon'
+          }
         });
       });
     }

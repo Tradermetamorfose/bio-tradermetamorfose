@@ -93,7 +93,7 @@
     .video-wrapper {
       max-width: 800px;
       width: 100%;
-      margin-bottom: 40px;
+      margin: 40px auto;
       border-radius: 10px;
       overflow: hidden;
       border: 2px solid #14ff5f;
@@ -124,16 +124,20 @@
       }
     }
 
+    .icon-img {
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      margin-right: 8px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
+    }
+
     .telegram-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      display: none;
-    }
-
-    .telegram-float.show {
-      display: block;
     }
 
     .telegram-float img {
@@ -183,123 +187,94 @@
     }
   </style>
 
+  <!-- ScrollReveal CDN -->
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-  <img class="logo sr-fade" src="logo.png" alt="Logo Trader Metamorfose" />
-  <h1 class="sr-fade">Desperte o Trader Profissional que há em você!</h1>
-  <p class="sr-fade">Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
+  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
+  <h1>Desperte o Trader Profissional que há em você!</h1>
+  <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
-  <div class="button-container sr-up">
-    <div class="contador sr-fade" id="contador">
-      Oferta válida por tempo limitado...
-    </div>
+  <a class="button pulsando" href="pagamento.html">
+    <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f4e4ba437fe051a41cda8839e1d74444ffcfdef4/LogoRedondo.png?raw=true" alt="Logo Trader Metamorfose" />
+    Quero participar da Mentoria
+  </a>
 
-    <a class="button pulsando sr-up" href="pagamento.html">💳 Quero participar da Mentoria</a>
+  <a class="button" href="consulta.html" target="_blank">
+    <img class="icon-img" src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Consulta" />
+    Quero uma Consulta Profissional
+  </a>
 
-    <a class="button sr-up" href="https://youtube.com/@tradermetamorfose" target="_blank">
-      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/5de6924663194f7e29e65df9b6fec7f28c7311d5/iconeYouTube%20.png?raw=true"
-           alt="YouTube"
-           style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px; border-radius: 50%; box-shadow: 0 0 10px #14ff5f;" />
-      Ver Conteúdo no YouTube
+  <a class="button" href="https://youtube.com/@tradermetamorfose" target="_blank">
+    <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/5de6924663194f7e29e65df9b6fec7f28c7311d5/iconeYouTube%20.png?raw=true" alt="YouTube" />
+    Ver Conteúdo no YouTube
+  </a>
+
+  <a class="button" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
+    <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
+    Entre para o canal Traders com propósitos
+  </a>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/trader.metamorfose" target="_blank">
+      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" />
     </a>
-
-    <a class="button sr-up" href="https://t.me/+7rIK0qx38CBmMDMx" target="_blank">
-      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true"
-           alt="Telegram"
-           style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px; border-radius: 50%; box-shadow: 0 0 10px #14ff5f;" />
-      Entre para o canal Traders com propósitos
+    <a href="https://www.tiktok.com/@tradermetamorfose" target="_blank">
+      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/TIKTOK.png?raw=true" alt="TikTok" />
     </a>
-
-    <div class="social-icons sr-up">
-      <a href="https://www.instagram.com/trader.metamorfose" target="_blank">
-        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/Instagram.jpeg?raw=true" alt="Instagram" />
-      </a>
-      <a href="https://www.tiktok.com/@tradermetamorfose" target="_blank">
-        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/89ef7012ed5c35dc6e8151e84849b0dde8b1cf31/TIKTOK.png?raw=true" alt="TikTok" />
-      </a>
-    </div>
   </div>
 
+  <!-- VÍDEOS YOUTUBE COM EFEITO -->
   <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; padding: 0 20px;">
     <div class="video-wrapper sr-up">
-      <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="YouTube video 2" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s" title="Vídeo 2" allowfullscreen></iframe>
     </div>
     <div class="video-wrapper sr-up">
-      <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="YouTube video 1" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/JI70pV5vLiY" title="Vídeo 1" allowfullscreen></iframe>
     </div>
     <div class="video-wrapper sr-up">
       <iframe src="https://www.youtube.com/embed/videoseries?list=PLkaWOEwmFMDTWGegQi2dyTB86vqeXqAsD" title="Playlist Trader Metamorfose" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div id="tooltip">💬 Fale comigo no Telegram</div>
-  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
-    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
+  <!-- Botão flutuante do Telegram -->
+  <a href="https://t.me/Trader_Metamorfose" class="telegram-float" target="_blank">
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
   </a>
 
+  <!-- Tooltip do Telegram -->
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+
+  <!-- Mensagem central da mentoria -->
   <div id="avisoMentoria" class="mensagem-mentoria">💥 Valor da mentoria reduzido por tempo limitado! Aproveite agora!</div>
 
-  <footer class="sr-fade">
+  <footer>
     © 2025 Trader Metamorfose. Todos os direitos reservados.
   </footer>
 
+  <!-- Scripts -->
   <script>
-    ScrollReveal().reveal('.sr-fade', {
-      duration: 1000,
-      distance: '20px',
-      origin: 'bottom',
-      easing: 'ease-in-out',
-      reset: false
-    });
-
     ScrollReveal().reveal('.sr-up', {
       duration: 1200,
       distance: '40px',
       origin: 'bottom',
       easing: 'ease-in-out',
       interval: 100,
-      reset: false
+      reset: true
     });
-
-    const countdown = () => {
-      const fim = new Date("2025-06-30T23:59:59").getTime();
-      const agora = new Date().getTime();
-      const distancia = fim - agora;
-      const el = document.getElementById("contador");
-
-      if (distancia <= 0) {
-        if (el) {
-          el.parentNode.removeChild(el);
-        }
-        return;
-      }
-
-      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-      el.innerHTML = `⏳ Valor promocional termina em: ${horas}:${minutos}:${segundos}`;
-    };
-
-    setInterval(countdown, 1000);
-    countdown();
 
     window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById('telegramBtn').classList.add('show');
         document.getElementById('tooltip').style.display = 'block';
         setTimeout(() => {
           document.getElementById('tooltip').style.display = 'none';
         }, 6000);
-      }, 4000);
+      }, 5000);
 
-      // Animação da mensagem de mentoria
       setTimeout(() => {
         const aviso = document.getElementById('avisoMentoria');
         aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';
         aviso.classList.add('show');
-
         setTimeout(() => {
           aviso.classList.remove('show');
         }, 2500);

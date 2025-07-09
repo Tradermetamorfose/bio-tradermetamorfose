@@ -269,12 +269,17 @@
     });
 
     window.addEventListener('load', () => {
-      // Efeito neon durante scroll
+      // Efeito neon e scroll automático
       setTimeout(() => {
         document.body.classList.add('neon-scroll-effect');
         window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
+
+        // Volta ao topo com efeito neon
         setTimeout(() => {
-          document.body.classList.remove('neon-scroll-effect');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            document.body.classList.remove('neon-scroll-effect');
+          }, 1500);
         }, 2000);
       }, 1500);
 

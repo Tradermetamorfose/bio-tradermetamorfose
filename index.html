@@ -14,6 +14,11 @@
       padding: 20px;
     }
 
+    .neon-scroll-effect {
+      box-shadow: 0 0 25px #14ff5f, inset 0 0 25px #14ff5f;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
     .logo {
       width: 150px;
       margin: 30px auto 10px;
@@ -264,6 +269,16 @@
     });
 
     window.addEventListener('load', () => {
+      // Efeito neon durante scroll
+      setTimeout(() => {
+        document.body.classList.add('neon-scroll-effect');
+        window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
+        setTimeout(() => {
+          document.body.classList.remove('neon-scroll-effect');
+        }, 2000);
+      }, 1500);
+
+      // Tooltip Telegram
       setTimeout(() => {
         document.getElementById('tooltip').style.display = 'block';
         setTimeout(() => {
@@ -271,6 +286,7 @@
         }, 6000);
       }, 5000);
 
+      // Mensagem da mentoria
       setTimeout(() => {
         const aviso = document.getElementById('avisoMentoria');
         aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';

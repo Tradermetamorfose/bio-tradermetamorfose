@@ -284,16 +284,18 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
-
-      // ADICIONADO: Inicia o ScrollReveal no container do vídeo
-      ScrollReveal().reveal('.video-container', {
-        duration: 1200,
-        distance: '50px',
-        origin: 'bottom',
-        easing: 'ease-in-out',
-        reset: true
-      });
     });
   </script>
+
+  <script>
+    ScrollReveal().reveal('.video-container', {
+      duration: 1200,
+      distance: '50px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      reset: true
+    });
+  </script>
+
 </body>
 </html>

@@ -20,7 +20,7 @@
 
     .logo {
       width: 150px;
-      margin: 10px auto 20px;
+      margin: 10px auto 30px;
       display: block;
     }
 
@@ -111,8 +111,7 @@
     }
 
     .video-container {
-      margin: 20px auto 40px;
-      position: relative;
+      margin-top: 40px;
     }
 
     iframe {
@@ -129,22 +128,6 @@
 
     iframe:hover {
       box-shadow: 0 0 25px #14ff5faa;
-    }
-
-    #avisoAudio {
-      display: none;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #14ff5f;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #14ff5f88;
-      z-index: 10;
-      font-size: 0.95rem;
     }
 
     footer {
@@ -195,8 +178,125 @@
   </style>
 </head>
 <body>
-  <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/3aca02eaad6e2d50e6c1337b0547ad37acc46b9c/Logo%20escrito%20branco%20horizontal.png?raw=true" alt="Logo Trader Metamorfose" class="logo" />
+  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
+  <h1>Formas de Pagamento</h1>
+  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
-  <!-- O restante do conteúdo HTML permanece intacto -->
+  <div class="contador" id="contador">
+    Oferta válida por tempo limitado...
+  </div>
+
+  <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
+    💳 Em até 10x 139,90 sem juros<br>
+    <span style="color: #14ff5f;">Válido até 10/07/2025</span>
+  </a>
+
+  <div class="pix-container">
+    <p>Ou, se preferir pagar via Pix, copie o código abaixo:</p>
+
+    <div class="pix-key" id="pixKey">00020101021226750014BR.GOV.BCB.PIX0127tradermetamorfose@gmail.com0222Pagamento trader-metam52040000530398654071259.005802BR5924GIVANILDO SILVA DOS REIS6015SAO JOSE DOS CA62290525QRCC8ejfVYXUlagFN2GbC8UuU6304DBD4</div>
+
+    <p style="font-size: 1.1rem; margin-top: 10px; color: #14ff5f;">
+      💰 Economize R$ 140,00 no Pix
+    </p>
+    <p style="font-size: 1.1rem; margin-top: 10px; color: #14ff5f;">
+      Só R$ 1.259,00 à vista!
+    </p>
+
+    <button class="button" onclick="copiarPix()">📋 Copiar Pix copia e cola</button>
+    <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">
+      Após copiar, abra o app do seu banco e cole o código Pix no campo de pagamento.
+    </p>
+
+    <div class="telegram">
+      Me envie o comprovante de pagamento no Telegram<br />
+      <a class="telegram-link" href="https://t.me/Trader_Metamorfose" target="_blank">
+        <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
+        CLIQUE AQUI
+      </a>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
+      🎥 O que você vai aprender na Mentoria:
+    </h2>
+    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
+  </div>
+
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+  <a href="https://t.me/Trader_Metamorfose" target="_blank" class="telegram-float" id="telegramBtn">
+    <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Fale comigo no Telegram" />
+  </a>
+
+  <footer>
+    © 2025 Trader Metamorfose. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function copiarPix() {
+      const chave = document.getElementById("pixKey").innerText;
+      navigator.clipboard.writeText(chave).then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Pix copiado!',
+          text: 'Pague em seu banco com o código colado e após envie o comprovante.',
+          timer: 3000,
+          showConfirmButton: false,
+          background: '#0f0f0f',
+          color: '#ffffff',
+          customClass: {
+            popup: 'swal2-neon'
+          }
+        });
+      });
+    }
+
+    function atualizarContador() {
+      const fim = new Date("2025-07-10T23:59:59").getTime();
+      const agora = new Date().getTime();
+      const distancia = fim - agora;
+
+      if (distancia <= 0) {
+        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+
+    window.addEventListener('load', () => {
+      // Efeito neon e scroll automático
+      setTimeout(() => {
+        document.body.style.boxShadow = '0 0 25px #14ff5f, inset 0 0 25px #14ff5f';
+        window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
+
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            document.body.style.boxShadow = '';
+          }, 1500);
+        }, 2000);
+      }, 1200);
+
+      // Tooltip e botão flutuante do Telegram
+      setTimeout(() => {
+        document.getElementById('telegramBtn').classList.add('show');
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 5000);
+      }, 4000);
+    });
+  </script>
 </body>
 </html>

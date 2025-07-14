@@ -299,14 +299,14 @@
       aviso.style.display = 'block';
       setTimeout(() => {
         aviso.style.display = 'none';
-      }, 4000);
+      }, 6000);
     }
 
     function onYouTubeIframeAPIReady() {
       const player = new YT.Player('videoMentoria', {
         events: {
           onReady: () => {
-            setTimeout(mostrarAvisoAudio, 1000);
+            setTimeout(mostrarAvisoAudio, 2000);
           }
         }
       });

@@ -202,7 +202,7 @@
       🎥 O que você vai aprender na Mentoria:
     </h2>
     <iframe id="videoMentoria" src="https://www.youtube.com/embed/dhSCwVf4a5s?autoplay=1&mute=1&enablejsapi=1&rel=0" title="YouTube video" allow="autoplay" allowfullscreen></iframe>
-    <div id="avisoAudio">🔊 Ative o áudio!</div>
+    <div id="avisoAudio">🔊 Clique e ative o áudio!</div>
   </div>
 
   <h1>Formas de Pagamento</h1>
@@ -306,7 +306,7 @@
       const player = new YT.Player('videoMentoria', {
         events: {
           onReady: () => {
-            setTimeout(mostrarAvisoAudio, 2000);
+            setTimeout(mostrarAvisoAudio, 3000);
           }
         }
       });

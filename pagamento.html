@@ -22,6 +22,19 @@
       width: 150px;
       margin: 10px auto 20px;
       display: block;
+      animation: neonPulse 2s infinite;
+      filter: drop-shadow(0 0 10px #14ff5f);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 15px #14ff5f);
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { filter: drop-shadow(0 0 5px #14ff5f); }
+      50% { filter: drop-shadow(0 0 20px #14ff5f); }
     }
 
     h1 {
@@ -293,7 +306,6 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Mensagem "Ative o áudio!" com API YouTube
     function mostrarAvisoAudio() {
       const aviso = document.getElementById('avisoAudio');
       aviso.style.display = 'block';

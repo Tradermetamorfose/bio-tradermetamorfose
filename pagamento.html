@@ -6,8 +6,6 @@
   <title>Pagamento - Mentoria Trader Metamorfose</title>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-  <script src="https://unpkg.com/scrollreveal"></script>
 
   <style>
     body {
@@ -17,6 +15,12 @@
       color: white;
       text-align: center;
       padding: 30px;
+      transition: transform 1s ease-in-out, box-shadow 1s ease-in-out;
+    }
+
+    body.animar {
+      transform: translateY(33vh);
+      box-shadow: 0 0 30px #14ff5f88 inset, 0 0 20px #14ff5f;
     }
 
     .logo {
@@ -171,7 +175,6 @@
       display: none;
     }
 
-    /* Estilo neon para SweetAlert */
     .swal2-neon {
       border: 2px solid #14ff5f;
       box-shadow: 0 0 15px #14ff5f, 0 0 30px #14ff5f88, 0 0 45px #14ff5f55;
@@ -277,6 +280,12 @@
     atualizarContador();
 
     window.addEventListener('load', () => {
+      // Movimento da página com efeito neon
+      document.body.classList.add('animar');
+      setTimeout(() => {
+        document.body.classList.remove('animar');
+      }, 1500);
+
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');
         document.getElementById('tooltip').style.display = 'block';
@@ -286,16 +295,5 @@
       }, 4000);
     });
   </script>
-
-  <script>
-    ScrollReveal().reveal('.video-container', {
-      duration: 1200,
-      distance: '50px',
-      origin: 'bottom',
-      easing: 'ease-in-out',
-      reset: true
-    });
-  </script>
-
 </body>
 </html>

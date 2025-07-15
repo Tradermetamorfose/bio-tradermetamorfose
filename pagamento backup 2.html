@@ -19,8 +19,8 @@
     }
 
     .logo {
-      width: 150px;
-      margin: 10px auto 20px;
+      width: 225px;
+      margin: 10px auto 30px;
       display: block;
     }
 
@@ -111,8 +111,7 @@
     }
 
     .video-container {
-      margin: 20px auto 40px;
-      position: relative;
+      margin-top: 40px;
     }
 
     iframe {
@@ -129,22 +128,6 @@
 
     iframe:hover {
       box-shadow: 0 0 25px #14ff5faa;
-    }
-
-    #avisoAudio {
-      display: none;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #14ff5f;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #14ff5f88;
-      z-index: 10;
-      font-size: 0.95rem;
     }
 
     footer {
@@ -195,21 +178,20 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
+  <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/3aca02eaad6e2d50e6c1337b0547ad37acc46b9c/Logo%20escrito%20branco%20horizontal.png?raw=true" alt="Logo Trader Metamorfose" class="logo" />
 
   <div class="video-container">
-    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px;">
+    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 10px;">
       🎥 O que você vai aprender na Mentoria:
     </h2>
-    <iframe id="videoMentoria" src="https://www.youtube.com/embed/dhSCwVf4a5s?autoplay=1&mute=1&enablejsapi=1&rel=0" title="YouTube video" allow="autoplay" allowfullscreen></iframe>
-    <div id="avisoAudio">🔊 Clique e ative o áudio!</div>
+    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <h1>Garantir minha vaga</h1>
+  <h1>Formas de Pagamento</h1>
   <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
   <div class="contador" id="contador">
-    Valor reduzido por tempo limitado...
+    Oferta válida por tempo limitado...
   </div>
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
@@ -292,30 +274,6 @@
 
     setInterval(atualizarContador, 1000);
     atualizarContador();
-
-    // Mensagem "Ative o áudio!" com API YouTube
-    function mostrarAvisoAudio() {
-      const aviso = document.getElementById('avisoAudio');
-      aviso.style.display = 'block';
-      setTimeout(() => {
-        aviso.style.display = 'none';
-      }, 6000);
-    }
-
-    function onYouTubeIframeAPIReady() {
-      const player = new YT.Player('videoMentoria', {
-        events: {
-          onReady: () => {
-            setTimeout(mostrarAvisoAudio, 3000);
-          }
-        }
-      });
-    }
-
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     window.addEventListener('load', () => {
       setTimeout(() => {

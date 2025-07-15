@@ -235,6 +235,8 @@
   </footer>
 
   <script>
+    const fim = new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000);
+
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
       navigator.clipboard.writeText(chave).then(() => {
@@ -254,9 +256,13 @@
     }
 
     function atualizarContador() {
-      const agora = new Date();
-      const fim = new Date(agora.getTime() + 2 * 24 * 60 * 60 * 1000); // dois dias a partir de agora
-      const distancia = fim - agora;
+      const agora = new Date().getTime();
+      const distancia = fim.getTime() - agora;
+
+      if (distancia <= 0) {
+        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        return;
+      }
 
       const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

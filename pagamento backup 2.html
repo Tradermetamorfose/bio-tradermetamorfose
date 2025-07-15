@@ -73,6 +73,12 @@
       text-shadow: 0 0 10px #14ff5f;
     }
 
+    #tempo {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #14ff5f;
+    }
+
     .pix-container {
       margin-top: 30px;
     }
@@ -187,16 +193,17 @@
     <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
-  <h1>Formas de Pagamento</h1>
-  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
+  <h1>Garantir minha vaga</h1>
+  <p>Escolha abaixo como deseja realizar o pagamento da mentoria:</p>
 
   <div class="contador" id="contador">
-    Oferta válida por tempo limitado...
+    ⏳ Valor reduzido termina em:
+    <div id="tempo"></div>
   </div>
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
     💳 Em até 10x 139,90 sem juros<br>
-    <span style="color: #14ff5f;">Válido até 10/07/2025</span>
+    <span style="color: #14ff5f;">Válido até 16/07/2025</span>
   </a>
 
   <div class="pix-container">
@@ -235,6 +242,8 @@
   </footer>
 
   <script>
+    const fim = new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000);
+
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
       navigator.clipboard.writeText(chave).then(() => {
@@ -254,12 +263,11 @@
     }
 
     function atualizarContador() {
-      const fim = new Date("2025-07-10T23:59:59").getTime();
       const agora = new Date().getTime();
-      const distancia = fim - agora;
+      const distancia = fim.getTime() - agora;
 
       if (distancia <= 0) {
-        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        document.getElementById("tempo").innerHTML = "⚠️ Oferta encerrada.";
         return;
       }
 
@@ -267,12 +275,13 @@
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+      const milissegundos = distancia % 1000;
 
-      document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+      document.getElementById("tempo").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s ${milissegundos}ms`;
     }
 
-    setInterval(atualizarContador, 1000);
+    setInterval(atualizarContador, 75);
     atualizarContador();
 
     window.addEventListener('load', () => {

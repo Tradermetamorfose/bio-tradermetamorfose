@@ -118,6 +118,7 @@
 
     .video-container {
       margin-top: 40px;
+      position: relative;
     }
 
     iframe {
@@ -134,6 +135,22 @@
 
     iframe:hover {
       box-shadow: 0 0 25px #14ff5faa;
+    }
+
+    .audio-msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20, 255, 95, 0.9);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      display: none;
+      z-index: 10;
     }
 
     footer {
@@ -190,7 +207,8 @@
     <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 10px;">
       🎥 O que você vai aprender na Mentoria:
     </h2>
-    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
+    <div class="audio-msg" id="audioMsg">🔊 Clique para ativar o áudio</div>
+    <iframe id="youtubePlayer" src="https://www.youtube.com/embed/dhSCwVf4a5s?autoplay=1&mute=1&enablejsapi=1" title="YouTube video" allow="autoplay" allowfullscreen></iframe>
   </div>
 
   <h1>Garantir minha vaga</h1>
@@ -304,6 +322,15 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
+
+      // Exibir mensagem de ativar áudio no vídeo
+      setTimeout(() => {
+        const msg = document.getElementById("audioMsg");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 5000);
+      }, 6000);
     });
   </script>
 </body>

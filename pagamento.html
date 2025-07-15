@@ -73,6 +73,12 @@
       text-shadow: 0 0 10px #14ff5f;
     }
 
+    #tempo {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #14ff5f;
+    }
+
     .pix-container {
       margin-top: 30px;
     }
@@ -191,7 +197,8 @@
   <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
 
   <div class="contador" id="contador">
-    Oferta válida por tempo limitado...
+    ⏳ Valor promocional termina em:
+    <div id="tempo"></div>
   </div>
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
@@ -260,7 +267,7 @@
       const distancia = fim.getTime() - agora;
 
       if (distancia <= 0) {
-        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        document.getElementById("tempo").innerHTML = "⚠️ Oferta encerrada.";
         return;
       }
 
@@ -268,12 +275,13 @@
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+      const milissegundos = distancia % 1000;
 
-      document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+      document.getElementById("tempo").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s ${milissegundos}ms`;
     }
 
-    setInterval(atualizarContador, 1000);
+    setInterval(atualizarContador, 75);
     atualizarContador();
 
     window.addEventListener('load', () => {

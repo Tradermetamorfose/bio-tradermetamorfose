@@ -3,10 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagamento - Mentoria Trader Metamorfose</title>
-  <!-- ... [restante do conteúdo mantido como fornecido anteriormente] ... -->
+  <title>Consulta Profissional - Trader Metamorfose</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00FF88;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .benefits {
+      margin: 30px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefits li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 15px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #14ff5f;
+      color: black;
+    }
+
+    .pulsando {
+      animation: brilho 2s infinite;
+    }
+
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
+
+    .telegram-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .telegram-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
+    }
+
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
+    }
+
+    .verse {
+      font-style: italic;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Conteúdo omitido por brevidade (já foi entregue anteriormente) -->
+
+  <img class="logo" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/d5bd32d17f0dcccaaa146d5eeb2ee2718136f088/logo.png?raw=true" alt="Logo Trader Metamorfose">
+
+  <h1>Consulta Profissional Trader Metamorfose</h1>
+
+  <p>Sessão individual com trader profissional, voltada para recuperação emocional e estratégica para o Trader.</p>
+
+  <p>Ideal para quem está desmotivado, em sequência de perdas, emocional abalado ou se sente travado para evoluir. Aqui você recebe clareza, direção e força para recomeçar!.</p>
+
+  <ul class="benefits">
+    <li>✔ Avaliação emocional e comportamental</li>
+    <li>✔ Análise do seu setup e rotina operacional</li>
+    <li>✔ Estratégias práticas para retomada da consistência</li>
+    <li>✔ Consulta com duração de 60 minutos</li>
+  </ul>
+
+  <a class="button pulsando" href="https://loja.infinitepay.io/trader-metamorfose/vjs6771-consulta-profissional" target="_blank">Agendar Minha Consulta</a>
+
+  <div class="telegram-float">
+    <a href="https://t.me/Trader_Metamorfose" target="_blank">
+      <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/70cfcc702539a02ca8388ff80751d70b88bd3e00/Icone-telegram.webp?raw=true" alt="Telegram" />
+    </a>
+  </div>
+
+  <div id="tooltip">💬 Fale comigo no Telegram</div>
+
+  <p class="verse">"Mas os que esperam no Senhor renovam as suas forças. Voam alto como águias; correm e não ficam exaustos, andam e não se cansam." <br>– Isaías 40:31 (NVI)</p>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('tooltip').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('tooltip').style.display = 'none';
+        }, 6000);
+      }, 5000);
+    });
+  </script>
+
 </body>
 </html>

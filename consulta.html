@@ -58,6 +58,13 @@
       text-decoration: none;
       font-size: 1rem;
       transition: all 0.3s ease;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .button.active {
+      pointer-events: auto;
+      opacity: 1;
     }
 
     .button:hover {
@@ -108,6 +115,13 @@
       color: #aaa;
       margin-top: 40px;
     }
+
+    .aviso {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -127,7 +141,9 @@
     <li>✔ Consulta com duração de 60 minutos</li>
   </ul>
 
-  <a class="button pulsando" href="https://loja.infinitepay.io/trader-metamorfose/vjs6771-consulta-profissional" target="_blank">Agendar Minha Consulta</a>
+  <p class="aviso">🚫 Agendamentos temporariamente indisponíveis.<br>🔓 Agenda aberta a partir de 20/07/2025.</p>
+
+  <a id="botaoConsulta" class="button pulsando" href="https://loja.infinitepay.io/trader-metamorfose/vjs6771-consulta-profissional" target="_blank">Agendar Minha Consulta</a>
 
   <div class="telegram-float">
     <a href="https://t.me/Trader_Metamorfose" target="_blank">
@@ -147,6 +163,17 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 6000);
       }, 5000);
+
+      const hoje = new Date();
+      const dataAtivacao = new Date('2025-07-20T00:00:00');
+
+      if (hoje >= dataAtivacao) {
+        const botao = document.getElementById('botaoConsulta');
+        botao.classList.add('active');
+        botao.style.pointerEvents = 'auto';
+        botao.style.opacity = '1';
+        document.querySelector('.aviso').style.display = 'none';
+      }
     });
   </script>
 

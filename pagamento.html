@@ -221,7 +221,7 @@
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
     💳 Em até 10x 139,90 sem juros<br>
-    <span style="color: #14ff5f;">Aproveite essa oportunidade!</span>
+    <span id="dataValidade" style="color: #14ff5f;">Válido até 20/07/2025</span>
   </a>
 
   <div class="pix-container">
@@ -260,8 +260,6 @@
   </footer>
 
   <script>
-    const fim = new Date('2025-07-20T23:59:59');
-
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
       navigator.clipboard.writeText(chave).then(() => {
@@ -279,6 +277,15 @@
         });
       });
     }
+
+    function getDataValidade() {
+      const texto = document.getElementById("dataValidade")?.innerText || "";
+      const dataMatch = texto.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+      if (!dataMatch) return new Date();
+      return new Date(`${dataMatch[3]}-${dataMatch[2]}-${dataMatch[1]}T23:59:59`);
+    }
+
+    const fim = getDataValidade();
 
     function atualizarContador() {
       const agora = new Date().getTime();

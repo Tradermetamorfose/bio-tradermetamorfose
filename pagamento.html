@@ -1,4 +1,3 @@
-<!-- CÓDIGO COMPLETO COM AS ALTERAÇÕES SOLICITADAS -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,8 +8,196 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
-    /* [ ... todo o estilo continua o mesmo ... ] */
-    /* (omitido aqui para manter o foco nas alterações, mas você já tem todo o CSS aí em cima) */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      transition: box-shadow 0.5s ease-in-out;
+    }
+
+    .logo {
+      width: 225px;
+      margin: 10px auto 30px;
+      display: block;
+    }
+
+    h1 {
+      color: #14ff5f;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 15px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #14ff5f;
+      color: black;
+    }
+
+    .pulsando {
+      animation: brilho 2s infinite;
+    }
+
+    @keyframes brilho {
+      0%, 100% { text-shadow: 0 0 5px #14ff5f; }
+      50% { text-shadow: 0 0 15px #14ff5f; }
+    }
+
+    .contador {
+      font-size: 1rem;
+      color: #14ff5f;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #14ff5f;
+    }
+
+    #tempo {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #14ff5f;
+    }
+
+    .pix-container {
+      margin-top: 30px;
+    }
+
+    .pix-key {
+      display: none;
+    }
+
+    .telegram {
+      margin-top: 25px;
+      font-size: 1rem;
+    }
+
+    .telegram-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: #14ff5f1c;
+      border: 1px solid #14ff5f;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .telegram-link:hover {
+      background: #14ff5f;
+      color: black;
+    }
+
+    .telegram-link img {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .video-container {
+      margin-top: 40px;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: 2px solid #14ff5f;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #14ff5f66;
+      transition: box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    iframe:hover {
+      box-shadow: 0 0 25px #14ff5faa;
+    }
+
+    .audio-msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20, 255, 95, 0.9);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      display: none;
+      z-index: 10;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .telegram-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: none;
+    }
+
+    .telegram-float.show {
+      display: block;
+    }
+
+    .telegram-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14ff5f;
+    }
+
+    #tooltip {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #14ff5f;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      z-index: 1000;
+      display: none;
+    }
+
+    .swal2-neon {
+      border: 2px solid #14ff5f;
+      box-shadow: 0 0 15px #14ff5f, 0 0 30px #14ff5f88, 0 0 45px #14ff5f55;
+      border-radius: 15px;
+    }
   </style>
 </head>
 <body>
@@ -34,7 +221,7 @@
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
     💳 Em até 10x 139,90 sem juros<br>
-    <span style="color: #14ff5f;">Aproveite essa oportunidade!</span>
+    <span style="color: #14ff5f;">Válido até 16/07/2025</span>
   </a>
 
   <div class="pix-container">
@@ -73,7 +260,7 @@
   </footer>
 
   <script>
-    const fim = new Date('2025-07-20T23:59:59');
+    const fim = new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000);
 
     function copiarPix() {
       const chave = document.getElementById("pixKey").innerText;
@@ -136,6 +323,7 @@
         }, 5000);
       }, 4000);
 
+      // Exibir mensagem de ativar áudio no vídeo
       setTimeout(() => {
         const msg = document.getElementById("audioMsg");
         msg.style.display = "block";

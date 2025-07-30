@@ -196,7 +196,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-  <img class="logo" src="logo.png" alt="Logo Trader Metamorfose" />
+  <img class="logo" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/62d735f50fe71ff63ac0731cdc3e0f48c4aea7a1/logo.png?raw=true" alt="Logo Trader Metamorfose" />
   <h1>Desperte o Trader Profissional que há em você!</h1>
   <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
@@ -269,12 +269,10 @@
     });
 
     window.addEventListener('load', () => {
-      // Efeito neon e scroll automático
       setTimeout(() => {
         document.body.classList.add('neon-scroll-effect');
         window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
 
-        // Volta ao topo com efeito neon
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
           setTimeout(() => {
@@ -283,7 +281,6 @@
         }, 2000);
       }, 1500);
 
-      // Tooltip Telegram
       setTimeout(() => {
         document.getElementById('tooltip').style.display = 'block';
         setTimeout(() => {
@@ -291,7 +288,6 @@
         }, 6000);
       }, 5000);
 
-      // Mensagem da mentoria
       setTimeout(() => {
         const aviso = document.getElementById('avisoMentoria');
         aviso.style.top = document.querySelector('.pulsando').getBoundingClientRect().top + window.scrollY + 'px';

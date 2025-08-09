@@ -285,15 +285,17 @@
       return new Date(`${dataMatch[3]}-${dataMatch[2]}-${dataMatch[1]}T23:59:59`);
     }
 
-    const fim = getDataValidade();
+    let fim = getDataValidade();
 
     function atualizarContador() {
       const agora = new Date().getTime();
-      const distancia = fim.getTime() - agora;
+      let distancia = fim.getTime() - agora;
 
       if (distancia <= 0) {
-        document.getElementById("tempo").innerHTML = "⚠️ Oferta encerrada.";
-        return;
+        // Prorroga automaticamente por mais 2 dias
+        fim = new Date(agora + (2 * 24 * 60 * 60 * 1000));
+        document.getElementById("dataValidade").innerText = `Válido até ${fim.toLocaleDateString('pt-BR')}`;
+        distancia = fim.getTime() - agora;
       }
 
       const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));

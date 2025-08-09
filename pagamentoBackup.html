@@ -19,7 +19,7 @@
     }
 
     .logo {
-      width: 150px;
+      width: 225px;
       margin: 10px auto 30px;
       display: block;
     }
@@ -73,6 +73,12 @@
       text-shadow: 0 0 10px #14ff5f;
     }
 
+    #tempo {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #14ff5f;
+    }
+
     .pix-container {
       margin-top: 30px;
     }
@@ -112,6 +118,7 @@
 
     .video-container {
       margin-top: 40px;
+      position: relative;
     }
 
     iframe {
@@ -128,6 +135,22 @@
 
     iframe:hover {
       box-shadow: 0 0 25px #14ff5faa;
+    }
+
+    .audio-msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20, 255, 95, 0.9);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #14ff5f88;
+      display: none;
+      z-index: 10;
     }
 
     footer {
@@ -178,17 +201,27 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Trader Metamorfose" class="logo" />
-  <h1>Formas de Pagamento</h1>
-  <p>Escolha abaixo como deseja garantir sua vaga na mentoria:</p>
+  <img src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/3aca02eaad6e2d50e6c1337b0547ad37acc46b9c/Logo%20escrito%20branco%20horizontal.png?raw=true" alt="Logo Trader Metamorfose" class="logo" />
+
+  <div class="video-container">
+    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 10px;">
+      🎥 O que você vai aprender na Mentoria:
+    </h2>
+    <div class="audio-msg" id="audioMsg">🔊 Clique para ativar o áudio</div>
+    <iframe id="youtubePlayer" src="https://www.youtube.com/embed/dhSCwVf4a5s?autoplay=1&mute=1&enablejsapi=1" title="YouTube video" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <h1>Garantir minha vaga</h1>
+  <p>Escolha abaixo como deseja realizar o pagamento da mentoria:</p>
 
   <div class="contador" id="contador">
-    Oferta válida por tempo limitado...
+    ⏳ Valor reduzido termina em:
+    <div id="tempo"></div>
   </div>
 
   <a class="button pulsando" href="https://pay.infinitepay.io/trader-metamorfose/Ri1B-1399,00" target="_blank">
     💳 Em até 10x 139,90 sem juros<br>
-    <span style="color: #14ff5f;">Válido até 10/07/2025</span>
+    <span id="dataValidade" style="color: #14ff5f;">Válido até 15/08/2025</span>
   </a>
 
   <div class="pix-container">
@@ -215,13 +248,6 @@
         CLIQUE AQUI
       </a>
     </div>
-  </div>
-
-  <div class="video-container">
-    <h2 style="color: #14ff5f; font-size: 1.2rem; margin-bottom: 15px; margin-top: 50px;">
-      🎥 O que você vai aprender na Mentoria:
-    </h2>
-    <iframe src="https://www.youtube.com/embed/dhSCwVf4a5s?si=J1kw1Ff4co8N_P7G" title="YouTube video" allowfullscreen></iframe>
   </div>
 
   <div id="tooltip">💬 Fale comigo no Telegram</div>
@@ -252,13 +278,21 @@
       });
     }
 
+    function getDataValidade() {
+      const texto = document.getElementById("dataValidade")?.innerText || "";
+      const dataMatch = texto.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+      if (!dataMatch) return new Date();
+      return new Date(`${dataMatch[3]}-${dataMatch[2]}-${dataMatch[1]}T23:59:59`);
+    }
+
+    const fim = getDataValidade();
+
     function atualizarContador() {
-      const fim = new Date("2025-07-10T23:59:59").getTime();
       const agora = new Date().getTime();
-      const distancia = fim - agora;
+      const distancia = fim.getTime() - agora;
 
       if (distancia <= 0) {
-        document.getElementById("contador").innerHTML = "⚠️ Oferta encerrada.";
+        document.getElementById("tempo").innerHTML = "⚠️ Oferta encerrada.";
         return;
       }
 
@@ -266,16 +300,16 @@
       const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+      const milissegundos = distancia % 1000;
 
-      document.getElementById("contador").innerHTML =
-        `⏳ Valor promocional termina em: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+      document.getElementById("tempo").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s ${milissegundos}ms`;
     }
 
-    setInterval(atualizarContador, 1000);
+    setInterval(atualizarContador, 75);
     atualizarContador();
 
     window.addEventListener('load', () => {
-      // Efeito neon e scroll automático
       setTimeout(() => {
         document.body.style.boxShadow = '0 0 25px #14ff5f, inset 0 0 25px #14ff5f';
         window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
@@ -288,7 +322,6 @@
         }, 2000);
       }, 1200);
 
-      // Tooltip e botão flutuante do Telegram
       setTimeout(() => {
         document.getElementById('telegramBtn').classList.add('show');
         document.getElementById('tooltip').style.display = 'block';
@@ -296,6 +329,14 @@
           document.getElementById('tooltip').style.display = 'none';
         }, 5000);
       }, 4000);
+
+      setTimeout(() => {
+        const msg = document.getElementById("audioMsg");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 5000);
+      }, 6000);
     });
   </script>
 </body>

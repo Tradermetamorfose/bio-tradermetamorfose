@@ -200,7 +200,12 @@
   <h1>Desperte o Trader Profissional que há em você!</h1>
   <p>Setups validados. Mentoria prática. Conteúdo para sua consistência.</p>
 
-  <a class="button pulsando" href="pagamento.html">
+  <!-- Controle de ativação da mentoria -->
+  <script>
+    const mentoriaAtiva = 0; // 1 = ativa / 0 = temporariamente indisponível
+  </script>
+
+  <a id="btnMentoria" class="button pulsando" href="#">
     <img class="icon-img" src="https://github.com/Tradermetamorfose/bio-tradermetamorfose/blob/f4e4ba437fe051a41cda8839e1d74444ffcfdef4/LogoRedondo.png?raw=true" alt="Logo Trader Metamorfose" />
     Quero participar da Mentoria
   </a>
@@ -269,6 +274,18 @@
     });
 
     window.addEventListener('load', () => {
+      // Controle do botão da mentoria
+      const btn = document.getElementById('btnMentoria');
+      if (mentoriaAtiva === 1) {
+        btn.href = "pagamento.html";
+        btn.textContent = "Quero participar da Mentoria";
+      } else {
+        btn.removeAttribute('href');
+        btn.textContent = "Mentoria temporariamente indisponível";
+        btn.style.opacity = "0.6";
+        btn.style.cursor = "not-allowed";
+      }
+
       setTimeout(() => {
         document.body.classList.add('neon-scroll-effect');
         window.scrollTo({ top: document.body.scrollHeight / 3, behavior: 'smooth' });
